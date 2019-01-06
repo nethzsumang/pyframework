@@ -1,4 +1,4 @@
-## Vape Sentiment Analysis
+## Python Desktop Application MVC Framework
 
 #### To run:
 1. Download the repository.
