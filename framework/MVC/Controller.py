@@ -18,7 +18,7 @@ class Controller(abc.ABC):
     @staticmethod
     def redirect(m_route, a_params=None):
         a_params = {} if a_params is None else a_params
-        if m_route == False:
+        if not m_route:
             input('Press enter to continue...')
             return {
                 'result': False
