@@ -1,6 +1,6 @@
 {
-    "PYTHON_VERSION": "3.6.0",
+    "PYTHON_VERSION": "3.6.5",
     "dependencies": {
-        "numpy": "1.0.0"
+        "numpy": "1.1.0"
     }
 }
