@@ -36,3 +36,35 @@ if s_command == 'edit_dependency':
 
 if s_command == 'install':
     version_check()
+
+if s_command == 'add_support':
+    s_type = a_params[0]
+    if s_type == 'image':
+        s_file_path = 'config' + os.sep + 'packages.json'
+        a_data = JSONFile(s_file_path, 'r').read()
+        a_data['dependencies']['opencv-python'] = '1.0.0'
+        a_data['dependencies']['scikit-image'] = '1.0.0'
+        a_data['dependencies']['matplotlib'] = '1.0.0'
+        JSONFile(s_file_path, 'w').write(a_data)
+    elif s_type == 'ann':
+        s_file_path = 'config' + os.sep + 'packages.json'
+        a_data = JSONFile(s_file_path, 'r').read()
+        a_data['dependencies']['tensorflow'] = '1.0.0'
+        JSONFile(s_file_path, 'w').write(a_data)
+    elif s_type == 'charts':
+        s_file_path = 'config' + os.sep + 'packages.json'
+        a_data = JSONFile(s_file_path, 'r').read()
+        a_data['dependencies']['matplotlib'] = '1.0.0'
+        JSONFile(s_file_path, 'w').write(a_data)
+    else:
+        print(s_type + ' not supported!')
+        exit(0)
+    
+    version_check()
+
+if s_command == 'reset_support':
+    s_file_path = 'config' + os.sep + 'packages.json'
+    a_data = JSONFile(s_file_path, 'r').read()
+    a_data['dependencies'] = {}
+    a_data['dependencies']['numpy'] = '1.0.0'
+    JSONFile(s_file_path, 'w').write(a_data)

@@ -44,25 +44,9 @@ def app_init():
     if a_packages is None:
         raise Exception('App package config JSON file not found!')
 
-    s_file_path_settings_vape = 'config' + os.sep + 'settings_vape.json'
-    a_settings_vape = JSONFile(s_file_path_settings_vape, 'r').read()
-
-    if a_settings_vape is None:
-        raise Exception('Vape Settings package JSON not found!')
-
-    s_file_path_settings_tobacco = 'config' + os.sep + 'settings_tobacco.json'
-    a_settings_tobacco = JSONFile(s_file_path_settings_tobacco, 'r').read()
-
-    if a_settings_tobacco is None:
-        raise Exception('Tobacco Settings package JSON not found!')
-
     a_data = {
         'APP': a_config_app_data,
-        'PACKAGES': a_packages,
-        'SETTINGS': {
-            'VAPE': a_settings_vape,
-            'TOBACCO': a_settings_tobacco
-        }
+        'PACKAGES': a_packages
     }
     o_app = AppConstants(a_data)
     return o_app
