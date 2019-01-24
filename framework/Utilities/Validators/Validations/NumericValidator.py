@@ -3,7 +3,7 @@ from framework.Utilities.Validators.Common.InstanceValidator import InstanceVali
 from framework.Utilities.Validators.Common.NumericValidator import NumericValidator
 
 
-class IntValidator(BaseValidator, InstanceValidator, NumericValidator):
+class NumericValidator(BaseValidator, InstanceValidator, NumericValidator):
     instance_rules = ['required', 'optional']
     length_rules = []
     content_rules = []
