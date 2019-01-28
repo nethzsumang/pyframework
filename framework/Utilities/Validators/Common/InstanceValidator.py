@@ -1,18 +1,23 @@
 class InstanceValidator:
+    error_msg = {
+        'required': 'Variable is required.',
+        'optional': 'Variable is not required?'
+    }
+
     def __init__(self):
         pass
 
-    def required(self, m_var):
+    def required(self, m_var, s_option):
         if m_var is None:
-            return False
+            return self.error_msg['required']
 
         if self.has_len(m_var):
             if len(m_var) == 0:
-                return False
+                return self.error_msg['required']
 
         return True
 
-    def optional(self, m_var):
+    def optional(self, m_var, s_option):
         return True
 
     def has_len(self, m_var):
