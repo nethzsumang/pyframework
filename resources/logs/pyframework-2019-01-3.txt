@@ -1,0 +1,5 @@
+[2019-01-30 16:43:45.814151][DEBUG]: Hello in debug!
+
+[2019-01-30 16:43:45.818149][ERROR]: Hello in error!
+
+[2019-01-30 16:43:45.821149][INFO]: Hello in info!
