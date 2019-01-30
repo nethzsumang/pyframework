@@ -12,3 +12,6 @@
 
 0.0.1b
 * Updated CHANGELOG.
+
+0.0.2
+* Reworked bootstrap to automatically import all JSON files as config in `/config`.
