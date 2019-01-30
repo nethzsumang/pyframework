@@ -37,4 +37,4 @@ class File:
         return self.handle_output(s_data_before, m_data)
 
     def handle_output(self, m_data_before, m_data):
-        return open(self.s_path, self.s_mode).write(m_data_before + m_data)
+        return open(self.s_path, 'w').write(m_data_before + m_data)

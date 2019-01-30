@@ -1,0 +1,5 @@
+{
+    "host": "localhost",
+    "sender": "someone@email.com",
+    "port": 25
+}
