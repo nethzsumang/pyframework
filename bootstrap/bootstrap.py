@@ -31,24 +31,19 @@ class AppConstants:
         from var_dump import var_dump
         var_dump(m_var)
 
+
 def app_init():
-    s_file_path_config_app = 'config' + os.sep + 'app.json'
-    a_config_app_data = JSONFile(s_file_path_config_app, 'r').read()
+    import os
+    from pathlib import Path
 
-    if a_config_app_data is None:
-        raise Exception('App config JSON file not found!')
+    config_data_path = str(Path.cwd()) + os.sep + 'config'
+    config_data = {}
+    for o_filepath in Path(config_data_path).iterdir():
+        if o_filepath.suffix == '.json':
+            filename, suffix = os.path.splitext(os.path.basename(str(o_filepath)))
+            config_data[filename.upper()] = JSONFile(str(o_filepath), 'r').read()
 
-    s_file_path_packages = 'config' + os.sep + 'packages.json'
-    a_packages = JSONFile(s_file_path_packages, 'r').read()
-
-    if a_packages is None:
-        raise Exception('App package config JSON file not found!')
-
-    a_data = {
-        'APP': a_config_app_data,
-        'PACKAGES': a_packages
-    }
-    o_app = AppConstants(a_data)
+    o_app = AppConstants(config_data)
     return o_app
 
 
