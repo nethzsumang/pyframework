@@ -18,3 +18,6 @@
 
 0.0.3 
 * Added prototype HTTP Request wrapper.
+
+0.0.4
+* Added Log helper.
