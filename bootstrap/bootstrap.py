@@ -13,20 +13,7 @@ class AppConstants:
     def get_group(self, s_group):
         return self.a_data[s_group]
 
-    def _dump(self, obj):
-        '''return a printable representation of an object for debugging'''
-        newobj = obj
-        if '__dict__' in dir(obj):
-            newobj = obj.__dict__
-            if ' object at ' in str(obj) and not newobj.has_key('__type__'):
-                newobj['__type__'] = str(obj)
-            for attr in newobj:
-                newobj[attr] = self._dump(newobj[attr])
-        return newobj
-
     def dump(self, m_var):
-        # from pprint import pprint
-        # pprint(self._dump(m_var))
         from var_dump import var_dump
         var_dump(m_var)
 
