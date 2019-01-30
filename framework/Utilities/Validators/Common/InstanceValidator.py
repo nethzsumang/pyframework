@@ -1,9 +1,4 @@
 class InstanceValidator:
-    error_msg = {
-        'required': 'Variable is required.',
-        'optional': 'Variable is not required?'
-    }
-
     def __init__(self):
         pass
 

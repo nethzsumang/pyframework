@@ -8,3 +8,10 @@ class NumericValidator(BaseValidator, InstanceValidator, NumericValidator):
     length_rules = []
     content_rules = []
     value_rules = ['maxval', 'minval']
+
+    error_msg = {
+        'minval': 'Variable\'s value must be greater than or equal to %s.',
+        'maxval': 'Variable\'s value must be less than or equal to %s.',
+        'required': 'Variable is required.',
+        'optional': 'Variable is not required?'
+    }
