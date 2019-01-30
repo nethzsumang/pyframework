@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6c2118f-1862-4885-b6dd-c7c20551e89f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/bootstrap/bootstrap.py" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/bootstrap.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/Utilities/Packager/PackageInstaller.py" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Utilities/Packager/PackageInstaller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exec.py" beforeDir="false" afterPath="$PROJECT_DIR$/exec.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +110,7 @@
           <entry key="dummy" value="7" />
           <entry key="json" value="12" />
           <entry key="md" value="286" />
-          <entry key="py" value="3427" />
+          <entry key="py" value="3436" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -120,7 +118,7 @@
           <entry key="JSON" value="12" />
           <entry key="Markdown" value="286" />
           <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="3658" />
+          <entry key="Python" value="3667" />
         </counts>
       </usages-collector>
     </session>
@@ -145,11 +143,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/framework/Utilities/Packager/PackageInstaller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+            <state relative-caret-position="-722">
+              <caret line="36" column="30" lean-forward="true" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -165,11 +163,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exec.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="8" column="56" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="56" />
+            <state relative-caret-position="359">
+              <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -192,7 +190,6 @@
         <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/framework/MVC/Controller.py" />
         <option value="$PROJECT_DIR$/app/controllers/IndexController.py" />
-        <option value="$PROJECT_DIR$/exec.py" />
         <option value="$PROJECT_DIR$/config/app.json" />
         <option value="$PROJECT_DIR$/framework/Utilities/Packager/__init__.py" />
         <option value="$PROJECT_DIR$/framework/Utilities/Validators/Common/LengthValidator.py" />
@@ -208,6 +205,7 @@
         <option value="$PROJECT_DIR$/bootstrap/bootstrap.py" />
         <option value="$PROJECT_DIR$/config/packages.json" />
         <option value="$PROJECT_DIR$/framework/Utilities/Packager/PackageInstaller.py" />
+        <option value="$PROJECT_DIR$/exec.py" />
       </list>
     </option>
   </component>
@@ -372,15 +370,15 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24973656" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24973656" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32929516" />
+      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.32929516" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.32929516" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32929516" />
       <window_info anchor="bottom" id="Version Control" order="5" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.32929516" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.32929516" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -559,17 +557,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exec.py">
+    <entry file="file://$PROJECT_DIR$/framework/Utilities/Packager/PackageInstaller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="8" column="56" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="56" />
+        <state relative-caret-position="-722">
+          <caret line="36" column="30" lean-forward="true" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/framework/Utilities/Packager/PackageInstaller.py">
+    <entry file="file://$PROJECT_DIR$/exec.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+        <state relative-caret-position="359">
+          <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
         </state>
       </provider>
     </entry>

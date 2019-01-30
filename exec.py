@@ -66,5 +66,5 @@ if s_command == 'reset_support':
     s_file_path = 'config' + os.sep + 'packages.json'
     a_data = JSONFile(s_file_path, 'r').read()
     a_data['dependencies'] = {}
-    a_data['dependencies']['numpy'] = '1.0.0'
+    a_data['dependencies']['var_dump'] = '1.0.0'
     JSONFile(s_file_path, 'w').write(a_data)
