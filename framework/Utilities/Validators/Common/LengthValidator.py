@@ -1,9 +1,4 @@
 class LengthValidator:
-    error_msg = {
-        'max': 'Variable\'s length must be greater than or equal to %s.',
-        'min': 'Variable\'s length must be less than or equal to %s.'
-    }
-
     def __init__(self):
         pass
 
