@@ -21,3 +21,6 @@
 
 0.0.4
 * Added Log helper.
+
+0.0.5
+* Added Caching functionality.
