@@ -1,8 +1,8 @@
 {
-    "INSTITUTION": "none",
     "AUTHOR_NAME": "Kenneth",
-    "APP_VERSION": "0.0.1",
     "APP_NAME": "Sentiment_Analysis",
-    "ROOT_DIR": "C:\\Users\\PH_DEVPC\\Documents\\PERSONAL PROJS\\pyframework",
-    "DESCRIPTION": "sample app"
+    "DESCRIPTION": "sample app",
+    "APP_VERSION": "0.0.1",
+    "INSTITUTION": "none",
+    "ROOT_DIR": "E:\\PYTHON\\pyframework"
 }
