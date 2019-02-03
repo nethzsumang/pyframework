@@ -17,6 +17,21 @@ class AppConstants:
         from var_dump import var_dump
         var_dump(m_var)
 
+    def get_lang(self):
+        return self.a_data['LANG']['current']
+    
+    def set_lang(self, s_lang):
+        from framework.Data.File.JSONFile import JSONFile
+        import os
+        from pathlib import Path
+
+        lang_data_path = str(Path.cwd()) + os.sep + 'config' + os.sep + 'lang.json'
+        lang_data = JSONFile(lang_data_path, 'r').read()
+        lang_data['current'] = s_lang
+        JSONFile(lang_data_path, 'w').write(lang_data)
+        self.a_data['LANG'] = JSONFile(lang_data_path, 'r').read()
+
+
 
 def app_init():
     import os
