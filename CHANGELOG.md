@@ -24,3 +24,6 @@
 
 0.0.5
 * Added Caching functionality.
+
+0.0.6
+* Added internationalization functionality.
