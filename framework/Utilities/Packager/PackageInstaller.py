@@ -1,7 +1,6 @@
 import sys
 import os
 from framework.Data.File.JSONFile import JSONFile
-from var_dump import var_dump
 
 
 def version_check():
