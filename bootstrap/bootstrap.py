@@ -1,5 +1,5 @@
 from framework.Data.File.JSONFile import JSONFile
-from framework.Utilities.Misc.Utils import path_join
+from framework.Utilities.Misc.Utils import path_join, filename_split
 
 
 class AppConstants:
@@ -34,14 +34,13 @@ class AppConstants:
 
 
 def app_init():
-    import os
     from pathlib import Path
 
-    config_data_path = str(Path.cwd()) + os.sep + 'config'
+    config_data_path = path_join(str(Path.cwd()), 'config')
     config_data = {}
     for o_filepath in Path(config_data_path).iterdir():
         if o_filepath.suffix == '.json':
-            filename, suffix = os.path.splitext(os.path.basename(str(o_filepath)))
+            filename, suffix = filename_split(str(o_filepath))
             config_data[filename.upper()] = JSONFile(str(o_filepath), 'r').read()
 
     o_app = AppConstants(config_data)
