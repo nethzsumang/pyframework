@@ -1,4 +1,5 @@
 from framework.Data.File.JSONFile import JSONFile
+from framework.Utilities.Misc.Utils import path_join
 
 
 class AppConstants:
@@ -22,10 +23,9 @@ class AppConstants:
     
     def set_lang(self, s_lang):
         from framework.Data.File.JSONFile import JSONFile
-        import os
         from pathlib import Path
 
-        lang_data_path = str(Path.cwd()) + os.sep + 'config' + os.sep + 'lang.json'
+        lang_data_path = path_join(str(Path.cwd()), 'config', 'lang.json')
         lang_data = JSONFile(lang_data_path, 'r').read()
         lang_data['current'] = s_lang
         JSONFile(lang_data_path, 'w').write(lang_data)
