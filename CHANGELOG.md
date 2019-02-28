@@ -27,3 +27,7 @@
 
 0.0.6
 * Added internationalization functionality.
+
+0.0.7
+* Added filename split utility.
+* Fixed path join utility.
