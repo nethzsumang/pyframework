@@ -40,7 +40,7 @@ def app_init():
     config_data = {}
     for o_filepath in Path(config_data_path).iterdir():
         if o_filepath.suffix == '.json':
-            filename, suffix = filename_split(str(o_filepath))
+            filename, _ = filename_split(str(o_filepath))
             config_data[filename.upper()] = JSONFile(str(o_filepath), 'r').read()
 
     o_app = AppConstants(config_data)
@@ -68,7 +68,7 @@ def execute_controller(o_app, s_name='IndexController', s_method='index', a_para
     a_file_list = [os.path.abspath(path) for path in a_file_list]
     a_controllers = []
     for a_file in a_file_list:
-        path, filename = os.path.split(a_file)
+        _, filename = os.path.split(a_file)
         filename = filename[:-3]
         a_controllers.append(filename)
 
