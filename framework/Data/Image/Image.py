@@ -5,4 +5,5 @@ class Image:
     @staticmethod
     def get(path, gray=False):
         from skimage.io import imread
+
         return Image(imread(path, as_gray=gray))
