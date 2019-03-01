@@ -31,12 +31,13 @@ def package_version_checker(s_packagename, s_version):
     if a_sys_version[0] < a_req_version[0]:
         update_package_version(s_packagename)
 
-    if a_sys_version[1] < a_req_version[1]:
-        update_package_version(s_packagename)
-
-    if len(a_sys_version) > 2:
-        if a_sys_version[2] < a_req_version[2]:
+    if len(a_sys_version) > 1:
+        if a_sys_version[1] < a_req_version[1]:
             update_package_version(s_packagename)
+
+        if len(a_sys_version) > 2:
+            if a_sys_version[2] < a_req_version[2]:
+                update_package_version(s_packagename)
 
 
 def update_package_version(s_packagename):
