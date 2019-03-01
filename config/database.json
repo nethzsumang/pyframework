@@ -1,0 +1,8 @@
+{
+    "client": "mysql",
+    "options": {
+        "host": "localhost",
+        "user": "root",
+        "password": ""
+    }
+}
