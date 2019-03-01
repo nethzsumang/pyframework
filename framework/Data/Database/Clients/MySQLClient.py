@@ -13,7 +13,7 @@ class MySQLClient(BaseClient):
             passwd=self.options["options"]["password"],
             db=self.options["options"]["database"],
         )
-        self.cursor = self.conn.cursor()
+        self.cursor = self.conn.cursor(MySQLdb.cursors.DictCursor)
     
     def select(self, table, cols=[]):
         col_names = ''
