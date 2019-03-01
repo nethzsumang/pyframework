@@ -10,6 +10,7 @@ class Database:
     def init(self):
         a_options = JSONFile(path_join('config', 'database.json'), 'r').read()
         self.client = Client.connect(a_options)
+        return self
 
     def select(self, table, cols=[]):
         return self.client.select(table, cols)
