@@ -39,13 +39,21 @@ def package_version_checker(s_packagename, s_version):
 
 
 def update_package_version(s_packagename):
-    import pip
-    pip.main(['install', '--upgrade', s_packagename])
+    try:
+        import pip
+        pip.main(['install', '--upgrade', s_packagename])
+    except AttributeError:
+        from pip._internal import main
+        main(['install', '--upgrade', s_packagename])
 
 
 def install_package(s_packagename):
-    import pip
-    pip.main(['install', s_packagename])
+    try:
+        import pip
+        pip.main(['install', s_packagename])
+    except AttributeError:
+        from pip._internal import main
+        main(['install', s_packagename])
 
 # PYTHON VERSION CHECKER
 def python_ver_check(a_packages):
