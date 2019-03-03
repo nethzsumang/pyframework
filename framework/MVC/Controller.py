@@ -20,7 +20,6 @@ class Controller(abc.ABC):
     def redirect(m_route, a_params=None):
         a_params = {} if a_params is None else a_params
         if not m_route:
-            input("Press enter to continue...")
             return {"result": False}
         else:
             a_route = m_route.split("@", 1)
