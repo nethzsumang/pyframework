@@ -20,5 +20,5 @@ class BaseClient:
         pass
 
     @abstractmethod
-    def where(self, col, operation, value):
+    def where(self, col, operation, value, connector):
         pass

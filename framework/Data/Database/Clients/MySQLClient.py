@@ -30,6 +30,7 @@ class MySQLClient(BaseClient):
             self.where_str = 'WHERE ' + self.where_str
 
         query_str = 'SELECT ' + col_names + ' FROM ' + table + ' ' + self.where_str
+        print(query_str)
 
         self.cursor.execute(query_str)
         self.where_str = ""
@@ -39,6 +40,9 @@ class MySQLClient(BaseClient):
         self.cursor.execute(query)
         return self.cursor.fetchall()
 
-    def where(self, col, operation, value):
-        self.where_str = self.where_str + col + operation + "'" + str(value) + "'"
+    def where(self, col, operation, value, connector):
+        if len(self.where_str) > 0:
+            self.where_str = self.where_str + ' ' + connector + ' ' + col + operation + "'" + str(value) + "'"
+        else:
+            self.where_str = self.where_str + col + operation + "'" + str(value) + "'"
         return self

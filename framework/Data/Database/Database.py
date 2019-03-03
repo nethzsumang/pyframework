@@ -18,6 +18,6 @@ class Database:
     def raw_select(self, query):
         return self.client.raw_select(query)
 
-    def where(self, col, operation, value):
-        self.client.where(col, operation, value)
+    def where(self, col, operation, value, connector='AND'):
+        self.client.where(col, operation, value, connector)
         return self
