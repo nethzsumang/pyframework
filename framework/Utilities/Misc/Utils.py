@@ -1,8 +1,10 @@
 def path_join(*paths):
     import os
 
-    full_path = ''
-    for path in paths:
-        full_path += path + os.sep
-    
-    return full_path
+    return os.sep.join(paths)
+
+
+def filename_split(path):
+    import os
+
+    return os.path.splitext(os.path.basename(path))

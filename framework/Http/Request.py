@@ -1,6 +1,7 @@
 import requests
 import json
 
+
 class Request:
     def __init__(self):
         pass

@@ -4,11 +4,11 @@ class InstanceValidator:
 
     def required(self, m_var, s_option):
         if m_var is None:
-            return self.error_msg['required']
+            return self.error_msg["required"]
 
         if self.has_len(m_var):
             if len(m_var) == 0:
-                return self.error_msg['required']
+                return self.error_msg["required"]
 
         return True
 
