@@ -14,3 +14,11 @@ class BaseClient:
     @abstractmethod
     def select(self, table, cols=[]):
         pass
+
+    @abstractmethod
+    def raw_select(self, query):
+        pass
+
+    @abstractmethod
+    def where(self, col, operation, value):
+        pass

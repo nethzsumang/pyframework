@@ -14,3 +14,10 @@ class Database:
 
     def select(self, table, cols=[]):
         return self.client.select(table, cols)
+
+    def raw_select(self, query):
+        return self.client.raw_select(query)
+
+    def where(self, col, operation, value):
+        self.client.where(col, operation, value)
+        return self

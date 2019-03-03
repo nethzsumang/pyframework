@@ -13,6 +13,7 @@ class MySQLClient(BaseClient):
             passwd=self.options["options"]["password"],
             db=self.options["options"]["database"],
         )
+        self.where_str = ""
         self.cursor = self.conn.cursor(MySQLdb.cursors.DictCursor)
     
     def select(self, table, cols=[]):
@@ -22,7 +23,22 @@ class MySQLClient(BaseClient):
             col_names = ','.join(cols)
         else:
             col_names = '*'
-        
+
         table = parse.quote(table)
-        self.cursor.execute('SELECT ' + col_names + ' FROM ' + table)
+
+        if len(self.where_str) > 0:
+            self.where_str = 'WHERE ' + self.where_str
+
+        query_str = 'SELECT ' + col_names + ' FROM ' + table + ' ' + self.where_str
+
+        self.cursor.execute(query_str)
+        self.where_str = ""
         return self.cursor.fetchall()
+
+    def raw_select(self, query):
+        self.cursor.execute(query)
+        return self.cursor.fetchall()
+
+    def where(self, col, operation, value):
+        self.where_str = self.where_str + col + operation + "'" + str(value) + "'"
+        return self

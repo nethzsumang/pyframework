@@ -9,3 +9,10 @@ class Model(abc.ABC):
 
     def select(self, cols=[]):
         return self.data_source.select(self.table, cols)
+
+    def raw_select(self, query):
+        return self.data_source.raw_select(query)
+
+    def where(self, col, operation, value):
+        self.data_source.where(col, operation, value)
+        return self
