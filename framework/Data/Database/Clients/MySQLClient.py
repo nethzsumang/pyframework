@@ -30,7 +30,6 @@ class MySQLClient(BaseClient):
             self.where_str = 'WHERE ' + self.where_str
 
         query_str = 'SELECT ' + col_names + ' FROM ' + table + ' ' + self.where_str
-        print(query_str)
 
         self.cursor.execute(query_str)
         self.where_str = ""
@@ -46,3 +45,29 @@ class MySQLClient(BaseClient):
         else:
             self.where_str = self.where_str + col + operation + "'" + str(value) + "'"
         return self
+    
+    def insert(self, table, data):
+        table = parse.quote(table)
+        query_str = "INSERT INTO " + table + " "
+        column_str = "("
+        value_str = "("
+        index = 0
+
+        for col, val in data.items():
+            if index == 0:
+                column_str = column_str + col
+                value_str = value_str + r"%s"
+            else:
+                column_str = column_str + "," + col
+                value_str = value_str + "," + r"%s"
+            
+            index = index + 1
+        
+        column_str = column_str + ")"
+        value_str = value_str + ")"
+
+        query_str = query_str + column_str + " VALUES " + value_str
+        return_val = self.cursor.execute(query_str, tuple(data.values()))
+        self.conn.commit()   
+        return return_val
+

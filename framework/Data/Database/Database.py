@@ -21,3 +21,6 @@ class Database:
     def where(self, col, operation, value, connector='AND'):
         self.client.where(col, operation, value, connector)
         return self
+    
+    def insert(self, table, data):
+        return self.client.insert(table, data)
