@@ -24,3 +24,6 @@ class Database:
     
     def insert(self, table, data):
         return self.client.insert(table, data)
+    
+    def update(self, table, data):
+        return self.client.update(table, data)

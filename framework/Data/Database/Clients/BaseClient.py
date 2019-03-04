@@ -26,3 +26,7 @@ class BaseClient:
     @abstractmethod
     def insert(self, table, data):
         pass
+    
+    @abstractmethod
+    def update(self, table, data):
+        pass

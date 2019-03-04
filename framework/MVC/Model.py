@@ -19,3 +19,6 @@ class Model(abc.ABC):
     
     def insert(self, data):
         return self.data_source.insert(self.table, data)
+    
+    def update(self, data):
+        return self.data_source.update(self.table, data)

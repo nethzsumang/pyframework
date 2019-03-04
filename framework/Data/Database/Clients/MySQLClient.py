@@ -70,4 +70,21 @@ class MySQLClient(BaseClient):
         return_val = self.cursor.execute(query_str, tuple(data.values()))
         self.conn.commit()   
         return return_val
+    
+    def update(self, table, data):
+        table = parse.quote(table)
+        query_str = "UPDATE " + table + " SET "
+        data_str = ""
+        index = 0
+
+        for col, val in data.items():
+            if index == 0:
+                data_str = col + r"=%s"
+            else:
+                data_str = "," + col + r"=%s"
+        
+        query_str = query_str + data_str + " WHERE " + self.where_str
+        return_val = self.cursor.execute(query_str, tuple(data.values()))
+        self.conn.commit()
+        return return_val
 
