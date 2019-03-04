@@ -13,13 +13,13 @@ class Model(abc.ABC):
     def raw_select(self, query):
         return self.data_source.raw_select(query)
 
-    def where(self, col, operation, value, connector='AND'):
+    def where(self, col, operation, value, connector="AND"):
         self.data_source.where(col, operation, value, connector=connector)
         return self
-    
+
     def insert(self, data):
         return self.data_source.insert(self.table, data)
-    
+
     def update(self, data):
         return self.data_source.update(self.table, data)
 

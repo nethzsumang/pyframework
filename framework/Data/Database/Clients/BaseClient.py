@@ -6,11 +6,11 @@ from framework.Utilities.Misc.Utils import path_join
 class BaseClient:
     def __init__(self, options):
         self.options = options
-    
+
     @abstractmethod
     def connect(self):
         pass
-    
+
     @abstractmethod
     def select(self, table, cols=[]):
         pass
@@ -26,11 +26,11 @@ class BaseClient:
     @abstractmethod
     def insert(self, table, data):
         pass
-    
+
     @abstractmethod
     def update(self, table, data):
         pass
-    
+
     @abstractmethod
     def delete(self, table):
         pass
