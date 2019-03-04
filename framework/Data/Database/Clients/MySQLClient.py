@@ -87,4 +87,11 @@ class MySQLClient(BaseClient):
         return_val = self.cursor.execute(query_str, tuple(data.values()))
         self.conn.commit()
         return return_val
+    
+    def delete(self, table):
+        table = parse.quote(table)
+        query_str = "DELETE FROM " + table + " WHERE " + self.where_str
+        return_val = self.cursor.execute(query_str)
+        self.conn.commit()
+        return return_val
 

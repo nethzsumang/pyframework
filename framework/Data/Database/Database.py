@@ -27,3 +27,6 @@ class Database:
     
     def update(self, table, data):
         return self.client.update(table, data)
+
+    def delete(self, table):
+        return self.client.delete(table)

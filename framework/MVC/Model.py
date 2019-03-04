@@ -22,3 +22,6 @@ class Model(abc.ABC):
     
     def update(self, data):
         return self.data_source.update(self.table, data)
+
+    def delete(self):
+        return self.data_source.delete(self.table)

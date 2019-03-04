@@ -30,3 +30,7 @@ class BaseClient:
     @abstractmethod
     def update(self, table, data):
         pass
+    
+    @abstractmethod
+    def delete(self, table):
+        pass
