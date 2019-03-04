@@ -31,3 +31,6 @@
 0.0.7
 * Added filename split utility.
 * Fixed path join utility.
+
+0.0.8
+* Added Select, Where, Insert, Update and Delete MySQL Support.
