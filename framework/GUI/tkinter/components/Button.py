@@ -5,7 +5,5 @@ from framework.GUI.tkinter.components.Component import Component
 
 class Button(Component):
     def add(self, parent, options):
-        self.object = tk.Button(
-            parent, text=options["text"], command=options["command"]
-        )
+        self.object = tk.Button(parent, options)
         return self

@@ -8,6 +8,8 @@ class Component(abc.ABC):
 
     def grid(self, row, col):
         self.object.grid(row=row, column=col)
+        return self
 
     def pack(self):
         self.object.pack()
+        return self

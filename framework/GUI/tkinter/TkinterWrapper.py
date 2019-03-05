@@ -1,27 +1,26 @@
 import tkinter as tk
 
-from framework.GUI.tkinter.components import *
-
 
 class TkinterWrapper:
     @staticmethod
     def create_instance():
-        return tk.Tk()
+        from framework.GUI.tkinter.components.Tk import Tk
+        return Tk().add(None, {})
 
     @staticmethod
     def add_widget(parent, eltype, options={}):
         from pydoc import locate
 
         o_class = locate("framework.GUI.tkinter.components." + eltype + "." + eltype)
-        return getattr(o_class, "add")(o_class(), parent, options)
+        return getattr(o_class, "add")(o_class(), parent.object, options)
 
     @staticmethod
     def open_window(element):
-        element.mainloop()
+        element.object.mainloop()
 
     @staticmethod
     def close_window(element):
-        element.destroy()
+        element.object.destroy()
 
 
 TkinterWrapper.FRAME = "Frame"
