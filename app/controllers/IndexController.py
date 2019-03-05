@@ -5,26 +5,36 @@ class IndexController(Controller):
     @staticmethod
     def index(o_app, a_params):
         print("This is " + o_app.get("APP", "APP_NAME") + " app.")
-        from app.models.User import User
+        from framework.GUI.tkinter.TkinterWrapper import TkinterWrapper
 
-        o_app.dump(
-            User().insert(
-                {
-                    "first_name": "Test2",
-                    "last_name": "Admin2",
-                    "email": "admin2@example.com",
-                    "password": "$2y$10$je12Oah47rm6bJXKiYW.que30T7NzWgKu9KeSei5PnKTAhhVCe5SC",
-                    "created_at": "2018-09-10 03:07:24",
-                    "updated_at": "2018-09-10 03:07:24",
-                }
-            )
-        )
-        o_app.dump(
-            User()
-            .where("first_name", "=", "Test2")
-            .update({"first_name": "Updated Test2"})
-        )
-        o_app.dump(User().where("id", ">=", "1").select(["id", "first_name", "last_name"]))
-        o_app.dump(User().where("first_name", "=", "Updated Test2").delete())
-        o_app.dump(User().where("id", ">=", "1").select(["id", "first_name", "last_name"]))
+        root = TkinterWrapper.create_instance()
+        frame = TkinterWrapper.add_widget(root, TkinterWrapper.FRAME, {}).pack()
+        TkinterWrapper.add_widget(
+            frame, TkinterWrapper.LABEL, {"text": "Enter your name"}
+        ).pack()
+        textbox = TkinterWrapper.add_widget(
+            frame, TkinterWrapper.ENTRY, {"width": 10, "dataType": "string"}
+        ).pack()
+        checkbox = TkinterWrapper.add_widget(
+            frame, TkinterWrapper.CHECKBUTTON, {"text": "Are you sure?"}
+        ).pack()
+        TkinterWrapper.add_widget(
+            frame,
+            TkinterWrapper.BUTTON,
+            {
+                "text": "Press Me!",
+                "command": lambda: print("Hi, " + str(textbox.get_value()) + "!")
+                if checkbox.get_value()
+                else None,
+            },
+        ).pack()
+        TkinterWrapper.add_widget(
+            frame,
+            TkinterWrapper.BUTTON,
+            {
+                "text": "Close Window",
+                "command": lambda: TkinterWrapper.close_window(root),
+            },
+        ).pack()
+        TkinterWrapper.open_window(root)
         return Controller.redirect(False)

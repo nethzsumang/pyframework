@@ -1,7 +1,7 @@
 import tkinter as tk
 
 from framework.GUI.tkinter.components.Component import Component
-from framework.GUI.tkinter.components.Editable import Editable
+from framework.GUI.tkinter.components.interfaces.Editable import Editable
 
 
 class Entry(Component, Editable):
