@@ -7,14 +7,15 @@ class Editable:
             self.var = tk.StringVar()
         elif dataType == "int":
             self.var = tk.IntVar()
-        elif dataType == 'double':
+        elif dataType == "double":
             self.var = tk.DoubleVar()
 
     def get_value(self):
         return self.var.get()
-    
+
     def set_value(self, data):
         self.var.set(data)
+
 
 Editable.STRING = "string"
 Editable.INT = "int"

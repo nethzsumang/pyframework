@@ -5,6 +5,7 @@ class TkinterWrapper:
     @staticmethod
     def create_instance():
         from framework.GUI.tkinter.components.Tk import Tk
+
         return Tk().add(None, {})
 
     @staticmethod
