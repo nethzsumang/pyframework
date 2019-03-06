@@ -15,7 +15,7 @@ class Mail:
 
         try:
             o_smtp = smtplib.SMTP(self.options["host"])
-            o_smtp.sendmail(sender, to, message)
+            o_smtp.sendmail(sender, str.split(","), message)
             return True
         except smtplib.SMTPException:
             return False
