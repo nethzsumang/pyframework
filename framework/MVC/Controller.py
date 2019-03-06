@@ -13,7 +13,7 @@ class Controller(abc.ABC):
     def view(s_class_name, a_data):
         from pydoc import locate
 
-        o_class = locate("app.views." + s_class_name + "." + s_class_name)
+        o_class = locate("app.views." + s_class_name + "View." + s_class_name + "View")
         return getattr(o_class(), "show")(a_data)
 
     @staticmethod

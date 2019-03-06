@@ -3,7 +3,7 @@ from framework.GUI.tkinter.TkinterWrapper import TkinterWrapper
 from framework.Utilities.Mail.Mail import Mail
 
 
-class Mail(View):
+class MailView(View):
     def __init__(self):
         super().__init__()
         self._initElements()
