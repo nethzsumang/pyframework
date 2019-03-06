@@ -11,6 +11,7 @@ class Editable:
             self.var = tk.DoubleVar()
 
     def get_value(self):
+        # print(self.var.get())
         return self.var.get()
 
     def set_value(self, data):

@@ -6,8 +6,8 @@ class Component(abc.ABC):
     def add(self, parent, options):
         pass
 
-    def grid(self, row, col):
-        self.object.grid(row=row, column=col)
+    def grid(self, row, col, columnspan=1):
+        self.object.grid(row=row, column=col, columnspan=columnspan)
         return self
 
     def pack(self):
