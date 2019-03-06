@@ -1,5 +1,7 @@
 {
-    "host": "localhost",
+    "host": "smtp.mailtrap.io",
     "sender": "someone@email.com",
-    "port": 25
+    "port": 2525,
+    "host_username": "d8b829c311b240",
+    "host_password": "b7f6e7e3a42620"
 }

@@ -14,10 +14,14 @@ class Mail:
         sender = sender if sender is not None else self.options["default_sender"]
 
         try:
-            o_smtp = smtplib.SMTP(self.options["host"])
+            o_smtp = smtplib.SMTP(self.options["host"], self.options["port"])
+            o_smtp.starttls()
+            o_smtp.login(self.options["host_username"], self.options["host_password"])
             o_smtp.sendmail(sender, str.split(","), message)
+            print("Successfully sent mail!")
             return True
         except smtplib.SMTPException:
+            print("Mail sending failed.")
             return False
 
     @staticmethod
