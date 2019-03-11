@@ -2,6 +2,7 @@ import sys
 import os
 from framework.Data.File.JSONFile import JSONFile
 from framework.Utilities.Packager.PackageInstaller import version_check
+from framework.Utilities.Security.Hash.Hash import Hash
 
 
 s_command = sys.argv[1]
@@ -16,6 +17,7 @@ if s_command == "init":
         raise Exception("App config JSON file not found!")
 
     a_data["ROOT_DIR"] = s_root_dir
+    a_data["APP_KEY"] = Hash.generate_key()
     JSONFile(s_file_path, "w").write(a_data)
 
 if s_command == "set":
