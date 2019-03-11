@@ -1,16 +1,17 @@
 from framework.MVC.View import View
 from framework.GUI.tkinter.TkinterWrapper import TkinterWrapper
-from framework.Utilities.Mail.Mail import Mail
+
+from app.views.events.MailEvents import MailEvents
 
 
 class MailView(View):
     def __init__(self):
         super().__init__()
         self._initElements()
-    
+
     def show(self, a_data):
         TkinterWrapper.open_window(self.root)
-    
+
     def close(self):
         TkinterWrapper.close_window(self.root)
 
@@ -48,10 +49,14 @@ class MailView(View):
             TkinterWrapper.BUTTON,
             {
                 "text": "Check Email",
-                "command": lambda: print("Emails are valid!")
-                if Mail.is_valid_email(sender.get_value())
-                and Mail.is_valid_email(recipient.get_value())
-                else print("There is/are invalid emails!"),
+                "command": lambda: MailEvents.handle(
+                    "MailEvents.check_mail",
+                    {
+                        "sender": sender.get_value(),
+                        "recipient": recipient.get_value(),
+                        "message": message.get_string("1.0"),
+                    },
+                ),
             },
         ).grid(4, 0)
 

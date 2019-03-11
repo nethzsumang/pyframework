@@ -1,8 +1,8 @@
 {
     "APP_VERSION": "0.0.1",
-    "AUTHOR_NAME": "Kenneth",
-    "INSTITUTION": "none",
-    "DESCRIPTION": "sample app",
     "APP_NAME": "Simple Mail Sender",
-    "ROOT_DIR": "C:\\Users\\PH_DEVPC\\Documents\\PERSONAL PROJS\\pyframework"
+    "DESCRIPTION": "sample app",
+    "ROOT_DIR": "/home/kenneth02/share/pyframework",
+    "INSTITUTION": "none",
+    "AUTHOR_NAME": "Kenneth"
 }
