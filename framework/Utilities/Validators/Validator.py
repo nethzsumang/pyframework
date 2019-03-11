@@ -1,8 +1,12 @@
 from framework.Utilities.Validators.Validations import StringValidator, NumericValidator
+from framework.Utilities.Misc.Utils import flatten_dict
 
 
 class Validator:
     options = {}
+
+    def __init__(self):
+        self.validation_error_dict = None
 
     def validate(self, a_data, a_rules, a_options=None):
         a_validation_result = {}
@@ -14,7 +18,8 @@ class Validator:
                 a_result = self.exec_validation("str", data_value, s_rule)
 
             a_validation_result[data_key] = a_result
-
+        
+        self.validation_error_dict = a_validation_result
         return a_validation_result
 
     def exec_validation(self, s_data_type, m_data, a_validations):
@@ -39,3 +44,15 @@ class Validator:
                 )
 
         return a_result
+    
+    def get_errors(self):
+        validation_message = ''
+        from var_dump import var_dump
+        self.validation_error_dict = flatten_dict(self.validation_error_dict)
+        var_dump(self.validation_error_dict)
+        for key, value in self.validation_error_dict.items():
+            if isinstance(value, str):
+                validation_message = validation_message + key + ': ' + value + '\n'
+                continue
+        
+        return validation_message

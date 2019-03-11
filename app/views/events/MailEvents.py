@@ -20,9 +20,5 @@ class MailEvents(Event):
             },
         )
 
-        from var_dump import var_dump
-
-        var_dump(result)
-
-        if Mail.is_valid_email(sender) or Mail.is_valid_email(recipient):
-            print("There is an invalid email.")
+        from tkinter import messagebox
+        messagebox.showinfo('Validation Errors', validator.get_errors())
