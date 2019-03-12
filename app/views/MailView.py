@@ -65,8 +65,13 @@ class MailView(View):
             TkinterWrapper.BUTTON,
             {
                 "text": "Send Email",
-                "command": lambda: Mail().send(
-                    message.get_string("1.0"), recipient.get_value(), sender.get_value()
+                "command": lambda: MailEvents.handle(
+                    "MailEvents.send_mail",
+                    {
+                        "sender": sender.get_value(),
+                        "recipient": recipient.get_value(),
+                        "message": message.get_string("1.0"),
+                    },
                 ),
             },
         ).grid(4, 1)
