@@ -34,3 +34,17 @@
 
 0.0.8
 * Added Select, Where, Insert, Update and Delete MySQL Support.
+
+0.1
+* Added basic tkinter widget support which includes:
+    * Button
+    * Checkbutton
+    * Entry
+    * Frame
+    * Label
+    * Radiobutton
+    * Text
+* Added hashing function.
+* Added separation for events and view.
+* Various fix and remodel for Mail module.
+* Preparing for testing module.
