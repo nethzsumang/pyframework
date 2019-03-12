@@ -5,7 +5,7 @@ from framework.Utilities.Validators.Validator import Validator
 
 class MailEvents(Event):
     @staticmethod
-    def _check_mail(data):
+    def check_mail(data):
         message = data["message"]
         sender = data["sender"]
         recipient = data["recipient"]

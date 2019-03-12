@@ -5,4 +5,4 @@ class Event:
 
         class_name, method_name = method_name.split(".")
         o_class = locate("app.views.events." + class_name + "." + class_name)
-        return getattr(o_class, "_" + method_name)(a_params)
+        return getattr(o_class, method_name)(a_params)
