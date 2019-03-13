@@ -1,4 +1,5 @@
-.idea/*
+.idea
+.idea/
 __pycache__
 config/settings.json
 config/app.json
