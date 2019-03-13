@@ -4,3 +4,5 @@ __pycache__
 config/settings.json
 config/app.json
 *.pyc
+venv
+.idea
