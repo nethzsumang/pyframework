@@ -21,4 +21,14 @@ class MailEvents(Event):
         )
 
         from tkinter import messagebox
-        messagebox.showinfo('Validation Errors', validator.get_errors())
+
+        if len(result.keys()) > 0:
+            messagebox.showinfo("Validation Result", validator.get_errors())
+        else:
+            messagebox.showinfo("Validation Result", "All are valid!")
+
+    @staticmethod
+    def send_mail(data):
+        message = data["message"]
+        sender = data["sender"]
+        recipient = data["recipient"]
