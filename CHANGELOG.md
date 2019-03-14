@@ -48,3 +48,6 @@
 * Added separation for events and view.
 * Various fix and remodel for Mail module.
 * Preparing for testing module.
+
+0.1a
+* Fixed default packages in `packages.json` and `python exec.py reset_support`.
