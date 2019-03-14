@@ -2,3 +2,4 @@
 __pycache__/
 config/settings.json
 config/app.json
+venv
