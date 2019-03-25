@@ -18,3 +18,9 @@ def flatten_dict(current, key="", result={}):
     else:
         result[key] = current
     return result
+
+
+def create_dir(path):
+    import os
+
+    os.makedirs(path, exist_ok=True)
