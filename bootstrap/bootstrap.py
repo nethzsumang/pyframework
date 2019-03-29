@@ -109,6 +109,7 @@ def start():
     """
 
     o_app = app_init()
+    show_title(o_app)
     s_name = "IndexController"
     s_method = "index"
     o_response = {
@@ -171,3 +172,19 @@ def execute_controller(
 
     o_class = locate("app.controllers." + s_name + "." + s_name)
     return getattr(o_class, s_method)(o_app, a_params)
+
+
+def show_title(o_app):
+    print(o_app.get('APP', 'APP_NAME') + ' v' + o_app.get('APP', 'APP_VERSION'))
+    print(o_app.get('APP', 'DESCRIPTION'))
+    print('(c) ' + o_app.get('APP', 'AUTHOR_NAME'))
+    print()
+    print('Based on pyframework by Kenneth Sumang <kennethsumang08@gmail.com>')
+    print('PyFramework v0.1, 12 March 2019')
+    print('Github: https://github.com/nethzsumang/pyframework')
+    print()
+    print()
+    print('Application is starting...')
+    print('Application started.')
+    print('---------------------------')
+    return
