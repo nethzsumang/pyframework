@@ -1,4 +1,4 @@
-from framework.Utilities.Misc.Utils import create_dir, path_join
+from framework.Utilities.Misc.Utils import create_dir, path_join, ucfirst
 from framework.Data.File.File import File
 
 
@@ -53,8 +53,17 @@ class Generator:
                        '\n'
         elif file_type == self.EVENT:
             folder_path = path_join('app', 'views', 'events')
+            contents = 'from framework.MVC.Event import Event\n' \
+                       '\n' \
+                       '\n' \
+                       'class ' + filename + '(Event):\n' \
+                       '    pass'
+        else:
+            print('Error! Unrecognized command')
+            return
 
         file_path = path_join(self.root, folder_path, filename + '.py')
 
         file = File(file_path, 'w')
         file.write(contents)
+        print(ucfirst(file_type) + ' was successfully created.')
