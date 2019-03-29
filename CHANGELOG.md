@@ -51,3 +51,8 @@
 
 0.1a
 * Fixed default packages in `packages.json` and `python exec.py reset_support`.
+
+0.1b
+* Fixed bug wherein Client will raise a Not Imported exception even though MySQL is not used.
+* Added console prints when application is starting and exiting.
+* Quiet installation for PackageInstaller.
