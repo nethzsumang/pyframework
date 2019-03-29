@@ -9,7 +9,7 @@ s_command = sys.argv[1]
 a_params = sys.argv[2 : len(sys.argv)]
 s_root_dir = os.path.dirname(os.path.realpath(__file__))
 
-if s_command == "init":
+def initialize():
     s_file_path = "config" + os.sep + "app.json"
     a_data = JSONFile(s_file_path, "r").read()
 
@@ -19,6 +19,9 @@ if s_command == "init":
     a_data["ROOT_DIR"] = s_root_dir
     a_data["APP_KEY"] = Hash.generate_key()
     JSONFile(s_file_path, "w").write(a_data)
+
+if s_command == "init":
+    initialize()
 
 if s_command == "set":
     s_command_param = a_params[0]
@@ -78,3 +81,14 @@ if s_command == "generate":
     from framework.Utilities.Misc.Generator import Generator as FileGenerator
 
     FileGenerator(s_root_dir).generate(s_filename, s_type.upper())
+
+if s_command == "run":
+    import subprocess
+    import platform
+
+    initialize()
+    system = platform.system()
+    if system == 'Windows':
+        subprocess.run('python index.py')
+    else:
+        subprocess.run('python3 index.py')
