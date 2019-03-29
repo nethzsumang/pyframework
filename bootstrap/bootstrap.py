@@ -126,6 +126,10 @@ def start():
             o_response["params"],
         )
 
+        if o_response is None or 'result' not in o_response:
+            o_response = dict()
+            o_response['result'] = False
+
 
 def execute_controller(
     o_app, s_name="IndexController", s_method="index", a_params=None
