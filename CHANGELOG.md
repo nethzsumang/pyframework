@@ -56,3 +56,6 @@
 * Fixed bug wherein Client will raise a Not Imported exception even though MySQL is not used.
 * Added console prints when application is starting and exiting.
 * Quiet installation for PackageInstaller.
+
+0.1c
+* Updated FW.json
