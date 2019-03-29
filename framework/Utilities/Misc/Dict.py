@@ -8,3 +8,16 @@ class Dict:
         else:
             result[key] = current
         return result
+
+    @staticmethod
+    def get(dictionary, key, default=None):
+        keys = key.split('.')
+        curr = dictionary
+
+        for key in keys:
+            try:
+                curr = curr[key]
+            except KeyError:
+                return default
+
+        return curr
