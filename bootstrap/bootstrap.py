@@ -131,6 +131,9 @@ def start():
             o_response = dict()
             o_response['result'] = False
 
+    show_exit()
+
+
 
 def execute_controller(
     o_app, s_name="IndexController", s_method="index", a_params=None
@@ -187,4 +190,10 @@ def show_title(o_app):
     print('Application is starting...')
     print('Application started.')
     print('---------------------------')
+    return
+
+
+def show_exit():
+    print('---------------------------')
+    print('Application exited.')
     return
