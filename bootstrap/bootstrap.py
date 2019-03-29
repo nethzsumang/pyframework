@@ -182,8 +182,8 @@ def show_title(o_app):
     print(o_app.get('APP', 'DESCRIPTION'))
     print('(c) ' + o_app.get('APP', 'AUTHOR_NAME'))
     print()
-    print('Based on pyframework by Kenneth Sumang <kennethsumang08@gmail.com>')
-    print('PyFramework v0.1, 12 March 2019')
+    print('Based on ' + o_app.get('FW', 'FW_NAME') + ' by Kenneth Sumang <kennethsumang08@gmail.com>')
+    print(o_app.get('FW', 'FW_NAME') + ' v' + o_app.get('FW', 'FW_VERSION') + ', ' + o_app.get('FW', 'FW_VERSION_DATE'))
     print('Github: https://github.com/nethzsumang/pyframework')
     print()
     print()
@@ -195,5 +195,5 @@ def show_title(o_app):
 
 def show_exit():
     print('---------------------------')
-    print('Application exited.')
+    print('Application closed.')
     return
