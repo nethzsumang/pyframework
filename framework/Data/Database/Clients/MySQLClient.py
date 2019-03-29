@@ -6,6 +6,10 @@ from urllib import parse
 
 class MySQLClient(BaseClient):
     def connect(self):
+        """
+            Connects to the database.
+            :return:
+        """
         self.conn = MySQLdb.connect(
             host=self.options["options"]["host"],
             port=self.options["options"]["port"],
@@ -17,6 +21,12 @@ class MySQLClient(BaseClient):
         self.cursor = self.conn.cursor(MySQLdb.cursors.DictCursor)
 
     def select(self, table, cols=[]):
+        """
+            Gets the data from the table.
+            :param table:
+            :param cols:
+            :return:
+        """
         col_names = ""
         if len(cols) > 0:
             cols = map(lambda colname: parse.quote(colname), cols)
@@ -36,10 +46,23 @@ class MySQLClient(BaseClient):
         return self.cursor.fetchall()
 
     def raw_select(self, query):
+        """
+            Executes a raw query.
+            :param query:
+            :return:
+        """
         self.cursor.execute(query)
         return self.cursor.fetchall()
 
     def where(self, col, operation, value, connector):
+        """
+            Sets WHERE clauses for Select queries.
+            :param col:
+            :param operation:
+            :param value:
+            :param connector:
+            :return:
+        """
         if len(self.where_str) > 0:
             self.where_str = (
                 self.where_str
@@ -57,6 +80,12 @@ class MySQLClient(BaseClient):
         return self
 
     def insert(self, table, data):
+        """
+            Inserts the data to the table.
+            :param table:
+            :param data:
+            :return:
+        """
         table = parse.quote(table)
         query_str = "INSERT INTO " + table + " "
         column_str = "("
@@ -82,6 +111,13 @@ class MySQLClient(BaseClient):
         return return_val
 
     def update(self, table, data):
+        """
+            Updates one or more rows matched by WHERE clauses
+            previously set with the data provided.
+            :param table:
+            :param data:
+            :return:
+        """
         table = parse.quote(table)
         query_str = "UPDATE " + table + " SET "
         data_str = ""
@@ -99,6 +135,12 @@ class MySQLClient(BaseClient):
         return return_val
 
     def delete(self, table):
+        """
+            Deletes one or more rows matched by WHERE clauses
+            previously set.
+            :param table:
+            :return:
+        """
         table = parse.quote(table)
         query_str = "DELETE FROM " + table + " WHERE " + self.where_str
         return_val = self.cursor.execute(query_str)

@@ -109,6 +109,7 @@ def start():
     """
 
     o_app = app_init()
+    show_title(o_app)
     s_name = "IndexController"
     s_method = "index"
     o_response = {
@@ -125,6 +126,13 @@ def start():
             o_response["redirect_to_method"],
             o_response["params"],
         )
+
+        if o_response is None or 'result' not in o_response:
+            o_response = dict()
+            o_response['result'] = False
+
+    show_exit()
+
 
 
 def execute_controller(
@@ -167,3 +175,25 @@ def execute_controller(
 
     o_class = locate("app.controllers." + s_name + "." + s_name)
     return getattr(o_class, s_method)(o_app, a_params)
+
+
+def show_title(o_app):
+    print(o_app.get('APP', 'APP_NAME') + ' v' + o_app.get('APP', 'APP_VERSION'))
+    print(o_app.get('APP', 'DESCRIPTION'))
+    print('(c) ' + o_app.get('APP', 'AUTHOR_NAME'))
+    print()
+    print('Based on ' + o_app.get('FW', 'FW_NAME') + ' by Kenneth Sumang <kennethsumang08@gmail.com>')
+    print(o_app.get('FW', 'FW_NAME') + ' v' + o_app.get('FW', 'FW_VERSION') + ', ' + o_app.get('FW', 'FW_VERSION_DATE'))
+    print('Github: https://github.com/nethzsumang/pyframework')
+    print()
+    print()
+    print('Application is starting...')
+    print('Application started.')
+    print('---------------------------')
+    return
+
+
+def show_exit():
+    print('---------------------------')
+    print('Application closed.')
+    return

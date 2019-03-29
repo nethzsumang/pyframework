@@ -70,3 +70,11 @@ if s_command == "reset_support":
     a_data["dependencies"]["requests"] = "1.0.0"
     a_data["dependencies"]["xlwt"] = "1.0.0"
     JSONFile(s_file_path, "w").write(a_data)
+
+if s_command == "generate":
+    s_type = a_params[0]
+    s_filename = a_params[1]
+
+    from framework.Utilities.Misc.Generator import Generator as FileGenerator
+
+    FileGenerator(s_root_dir).generate(s_filename, s_type.upper())
