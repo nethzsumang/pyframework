@@ -44,22 +44,22 @@ def update_package_version(s_packagename):
     try:
         import pip
 
-        pip.main(["install", "--upgrade", s_packagename])
+        pip.main(["install", "-q", "--upgrade", s_packagename])
     except AttributeError:
         from pip._internal import main
 
-        main(["install", "--upgrade", s_packagename])
+        main(["install", "-q", "--upgrade", s_packagename])
 
 
 def install_package(s_packagename):
     try:
         import pip
 
-        pip.main(["install", s_packagename])
+        pip.main(["install", "-q", s_packagename])
     except AttributeError:
         from pip._internal import main
 
-        main(["install", s_packagename])
+        main(["install", "-q", s_packagename])
 
 
 # PYTHON VERSION CHECKER
