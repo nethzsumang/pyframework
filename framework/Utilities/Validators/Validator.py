@@ -1,5 +1,5 @@
+from framework.Utilities.Misc.Dict import Dict
 from framework.Utilities.Validators.Validations import StringValidator, NumericValidator
-from framework.Utilities.Misc.Utils import flatten_dict
 
 
 class Validator:
@@ -49,7 +49,7 @@ class Validator:
         validation_message = ""
         from var_dump import var_dump
 
-        self.validation_error_dict = flatten_dict(self.validation_error_dict)
+        self.validation_error_dict = Dict.flatten(self.validation_error_dict)
         var_dump(self.validation_error_dict)
         for key, value in self.validation_error_dict.items():
             if isinstance(value, str):
