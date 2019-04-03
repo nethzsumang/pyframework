@@ -1,11 +1,20 @@
 {
     "table": "users",
+    "keys": {
+        "primaryKey": "id",
+        "foreignKeys": [
+            {
+                "columnName": "foreign_key",
+                "references": "primary_key",
+                "on": "other_table"
+            }
+        ]
+    },
     "fields": [
         {
             "name": "id",
             "type": "INT",
             "length": 6,
-            "primaryKey": true,
             "autoIncrement": true
         },
         {
