@@ -64,3 +64,6 @@
 * Added support for generating Events and Migrations using `exec.py` commands.
 * Basic implementation for migrations.
 * Added some helper functions.
+
+0.2a
+* Added support for AUTO_INCREMENT in MySQL.
