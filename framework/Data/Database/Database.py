@@ -72,3 +72,17 @@ class Database:
             :return:
         """
         return self.client.delete(table)
+
+    def migrate(self, table):
+        """
+            Migrate the table
+            :param table:
+            :return:
+        """
+        from framework.Data.File.JSONFile import JSONFile
+
+        schema_path = path_join('database', 'migrations', table + '.json')
+        schema = JSONFile(schema_path, 'r').read()
+
+        return self.client.migrate(schema)
+

@@ -146,3 +146,43 @@ class MySQLClient(BaseClient):
         return_val = self.cursor.execute(query_str)
         self.conn.commit()
         return return_val
+
+    def migrate(self, schema):
+        from framework.Utilities.Misc.Dict import Dict
+        import os
+
+        table = Dict.get(schema, 'table')
+        keys = Dict.get(schema, 'keys')
+        fields = Dict.get(schema, 'fields')
+
+        query = 'CREATE TABLE ' + table + ' (\n'
+
+        for field in fields:
+            name = Dict.get(field, 'name')
+            type = Dict.get(field, 'type')
+            length = Dict.get(field, 'length')
+            nullable = Dict.get(field, 'nullable', False)
+            default = Dict.get(field, 'default', None)
+
+            query = query + name + ' ' + type
+
+            if length is not None:
+                query = query + '(' + str(length) + ')'
+
+            query = query + ' '
+
+            if not nullable:
+                query = query + 'NOT NULL '
+
+            if default is not None:
+                query = query + 'DEFAULT \'' + default + '\' '
+
+            query = query + ","
+
+        query = query[:-1] + ');'
+
+        return self.cursor.execute(query)
+
+
+
+

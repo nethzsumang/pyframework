@@ -34,3 +34,7 @@ class BaseClient:
     @abstractmethod
     def delete(self, table):
         pass
+
+    @abstractmethod
+    def migrate(self, schema):
+        pass
