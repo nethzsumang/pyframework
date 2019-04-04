@@ -4,6 +4,7 @@
         "var_dump": "1.0.0",
         "pyquery": "1.0.0",
         "requests": "1.0.0",
-        "xlwt": "1.0.0"
+        "xlwt": "1.0.0",
+        "mysqlclient": "1.0.0"
     }
 }
