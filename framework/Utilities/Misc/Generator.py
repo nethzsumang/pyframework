@@ -7,6 +7,7 @@ class Generator:
     MODEL = 'MODEL'
     VIEW = 'VIEW'
     EVENT = 'EVENT'
+    MIGRATION = 'MIGRATION'
 
     root = ''
 
@@ -16,6 +17,18 @@ class Generator:
     def generate(self, filename, file_type):
         folder_path = ''
         contents = ''
+        if file_type == self.MIGRATION:
+            import time
+            import math
+
+            time = math.floor(time.time())
+            folder_path = path_join('database', 'migrations')
+            contents = ''
+            file_path = path_join(self.root, folder_path, str(time) + '_' + filename + '.json')
+            File(file_path, 'w').write(contents)
+            print(ucfirst(file_type) + ' was successfully created.')
+            return
+
         if file_type == self.CONTROLLER:
             folder_path = path_join('app', 'controllers')
             contents = 'from framework.MVC.Controller import Controller\n' \
