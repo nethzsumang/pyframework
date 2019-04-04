@@ -39,12 +39,6 @@
             "default": ""
         },
         {
-            "name": "email_verified_at",
-            "type": "TIMESTAMP",
-            "nullable": true,
-            "default": ""
-        },
-        {
             "name": "password",
             "type": "VARCHAR",
             "length": 191,
