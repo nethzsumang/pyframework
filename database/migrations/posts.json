@@ -1,0 +1,65 @@
+{
+    "table": "posts",
+    "keys": {
+        "primaryKey": ["id"],
+        "foreignKeys": [
+            {
+                "columnName": "foreign_key",
+                "references": "primary_key",
+                "on": "other_table"
+            }
+        ]
+    },
+    "fields": [
+        {
+            "name": "id",
+            "type": "INT",
+            "length": 6,
+            "autoIncrement": true
+        },
+        {
+            "name": "first_name",
+            "type": "VARCHAR",
+            "length": 191,
+            "nullable": false,
+            "default": ""
+        },
+        {
+            "name": "last_name",
+            "type": "VARCHAR",
+            "length": 191,
+            "nullable": false,
+            "default": ""
+        },
+        {
+            "name": "email",
+            "type": "VARCHAR",
+            "length": 191,
+            "nullable": false,
+            "default": ""
+        },
+        {
+            "name": "password",
+            "type": "VARCHAR",
+            "length": 191,
+            "nullable": false,
+            "default": ""
+        },
+        {
+            "name": "remember_token",
+            "type": "VARCHAR",
+            "length": 100,
+            "nullable": true
+        },
+        {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "nullable": true
+        },
+        {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "nullable": true
+        }
+    ]
+}
