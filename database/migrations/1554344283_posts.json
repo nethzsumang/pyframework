@@ -4,9 +4,9 @@
         "primaryKey": "id",
         "foreignKeys": [
             {
-                "columnName": "foreign_key",
-                "references": "primary_key",
-                "on": "other_table"
+                "columnName": "user_id",
+                "references": "id",
+                "on": "users"
             }
         ]
     },
@@ -18,38 +18,18 @@
             "autoIncrement": true
         },
         {
-            "name": "first_name",
+            "name": "title",
             "type": "VARCHAR",
             "length": 191,
             "nullable": false,
             "default": ""
         },
         {
-            "name": "last_name",
+            "name": "body",
             "type": "VARCHAR",
             "length": 191,
             "nullable": false,
             "default": ""
-        },
-        {
-            "name": "email",
-            "type": "VARCHAR",
-            "length": 191,
-            "nullable": false,
-            "default": ""
-        },
-        {
-            "name": "password",
-            "type": "VARCHAR",
-            "length": 191,
-            "nullable": false,
-            "default": ""
-        },
-        {
-            "name": "remember_token",
-            "type": "VARCHAR",
-            "length": 100,
-            "nullable": true
         },
         {
             "name": "created_at",
@@ -60,6 +40,11 @@
             "name": "updated_at",
             "type": "TIMESTAMP",
             "nullable": true
+        },
+        {
+            "name": "user_id",
+            "type": "INT",
+            "nullable": false
         }
     ]
 }

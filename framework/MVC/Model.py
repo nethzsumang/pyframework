@@ -26,5 +26,5 @@ class Model(abc.ABC):
     def delete(self):
         return self.data_source.delete(self.table)
 
-    def migrate(self):
-        return self.data_source.migrate(self.table)
+    def migrate(self, path):
+        return self.data_source.migrate(path)

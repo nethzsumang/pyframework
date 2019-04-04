@@ -1,6 +1,7 @@
 import sys
 import os
 from framework.Data.File.JSONFile import JSONFile
+from framework.Utilities.Misc.Utils import path_join
 from framework.Utilities.Packager.PackageInstaller import version_check
 from framework.Utilities.Security.Hash.Hash import Hash
 
@@ -72,6 +73,7 @@ if s_command == "reset_support":
     a_data["dependencies"]["pyquery"] = "1.0.0"
     a_data["dependencies"]["requests"] = "1.0.0"
     a_data["dependencies"]["xlwt"] = "1.0.0"
+    a_data["dependencies"]["inflect"] = "1.0.0"
     JSONFile(s_file_path, "w").write(a_data)
 
 if s_command == "generate":
@@ -96,20 +98,49 @@ if s_command == "run":
 if s_command == "migrate":
     import glob
     import os
+    import re
+    import inflect
     from pydoc import locate
     from var_dump import var_dump
 
-    a_file_list = glob.glob("app" + os.sep + "models" + os.sep + "*.py")
+    a_file_list = glob.glob(path_join("database", "migrations", '*.json'))
     a_file_list = [os.path.abspath(path) for path in a_file_list]
+    a_migrations = []
+    a_migrations_paths = []
     a_models = []
-    for a_file in a_file_list:
-        _, filename = os.path.split(a_file)
-        filename = filename[:-3]
-        a_models.append(filename)
 
-    for model in a_models:
-        o_class = locate("app.models." + model + "." + model)
+    for file in a_file_list:
+        path, filename = os.path.split(file)
+        full_path = path_join(path, filename)
+        a_migrations_paths.append(full_path)
+        filename = filename[:-5]
+        a_migrations.append(filename)
+
+    for migration in a_migrations:
+        migration_name = re.compile('[^a-z]').sub('', migration)
+        model_name = inflect.engine().singular_noun(migration_name)
+        model_name = model_name[0].upper() + model_name[1:]
+        a_models.append(model_name)
+
+    for i in range(len(a_models)):
+        o_class = locate("app.models." + a_models[i] + "." + a_models[i])
         obj = o_class()
-        getattr(obj, 'migrate')()
+        getattr(obj, 'migrate')(a_migrations_paths[i])
 
     print("Successfully migrated.")
+
+
+    # a_file_list = glob.glob("app" + os.sep + "models" + os.sep + "*.py")
+    # a_file_list = [os.path.abspath(path) for path in a_file_list]
+    # a_models = []
+    # for a_file in a_file_list:
+    #     _, filename = os.path.split(a_file)
+    #     filename = filename[:-3]
+    #     a_models.append(filename)
+    #
+    # for model in a_models:
+    #     o_class = locate("app.models." + model + "." + model)
+    #     obj = o_class()
+    #     getattr(obj, 'migrate')()
+
+    # print("Successfully migrated.")

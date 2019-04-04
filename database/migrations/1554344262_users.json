@@ -1,14 +1,7 @@
 {
     "table": "users",
     "keys": {
-        "primaryKey": "id",
-        "foreignKeys": [
-            {
-                "columnName": "foreign_key",
-                "references": "primary_key",
-                "on": "other_table"
-            }
-        ]
+        "primaryKey": "id"
     },
     "fields": [
         {

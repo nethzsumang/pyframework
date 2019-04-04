@@ -179,6 +179,20 @@ class MySQLClient(BaseClient):
 
             query = query + ","
 
+        primary_key = Dict.get(keys, 'primaryKey', None)
+        foreign_keys = Dict.get(keys, 'foreignKeys')
+
+        if primary_key is not None:
+            query = query + 'PRIMARY KEY (' + primary_key + '),'
+
+        if foreign_keys is not None:
+            for foreign in foreign_keys:
+                column_name = Dict.get(foreign, 'columnName')
+                references = Dict.get(foreign, 'references')
+                on = Dict.get(foreign, 'on')
+
+                query = query + 'FOREIGN KEY (' + column_name + ') REFERENCES ' + on + '(' + references + '),'
+
         query = query[:-1] + ');'
 
         return self.cursor.execute(query)

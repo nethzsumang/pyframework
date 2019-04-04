@@ -5,6 +5,7 @@
         "pyquery": "1.0.0",
         "requests": "1.0.0",
         "xlwt": "1.0.0",
+        "inflect": "1.0.0",
         "mysqlclient": "1.0.0"
     }
 }

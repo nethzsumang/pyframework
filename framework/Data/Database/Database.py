@@ -73,7 +73,7 @@ class Database:
         """
         return self.client.delete(table)
 
-    def migrate(self, table):
+    def migrate(self, path):
         """
             Migrate the table
             :param table:
@@ -81,8 +81,8 @@ class Database:
         """
         from framework.Data.File.JSONFile import JSONFile
 
-        schema_path = path_join('database', 'migrations', table + '.json')
-        schema = JSONFile(schema_path, 'r').read()
+        # schema_path = path_join('database', 'migrations', table + '.json')
+        schema = JSONFile(path, 'r').read()
 
         return self.client.migrate(schema)
 
