@@ -128,19 +128,3 @@ if s_command == "migrate":
         getattr(obj, 'migrate')(a_migrations_paths[i])
 
     print("Successfully migrated.")
-
-
-    # a_file_list = glob.glob("app" + os.sep + "models" + os.sep + "*.py")
-    # a_file_list = [os.path.abspath(path) for path in a_file_list]
-    # a_models = []
-    # for a_file in a_file_list:
-    #     _, filename = os.path.split(a_file)
-    #     filename = filename[:-3]
-    #     a_models.append(filename)
-    #
-    # for model in a_models:
-    #     o_class = locate("app.models." + model + "." + model)
-    #     obj = o_class()
-    #     getattr(obj, 'migrate')()
-
-    # print("Successfully migrated.")
