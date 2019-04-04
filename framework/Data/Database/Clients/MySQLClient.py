@@ -163,6 +163,7 @@ class MySQLClient(BaseClient):
             length = Dict.get(field, 'length')
             nullable = Dict.get(field, 'nullable', False)
             default = Dict.get(field, 'default', None)
+            auto_increment = Dict.get(field, 'autoIncrement', False)
 
             query = query + name + ' ' + type
 
@@ -176,6 +177,9 @@ class MySQLClient(BaseClient):
 
             if default is not None:
                 query = query + 'DEFAULT \'' + default + '\' '
+
+            if auto_increment:
+                query = query + ' AUTO_INCREMENT'
 
             query = query + ","
 
