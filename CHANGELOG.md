@@ -59,3 +59,8 @@
 
 0.1c
 * Updated FW.json
+
+0.2
+* Added support for generating Events and Migrations using `exec.py` commands.
+* Basic implementation for migrations.
+* Added some helper functions.
