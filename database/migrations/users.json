@@ -1,7 +1,7 @@
 {
     "table": "users",
     "keys": {
-        "primaryKey": "id",
+        "primaryKey": ["id"],
         "foreignKeys": [
             {
                 "columnName": "foreign_key",
