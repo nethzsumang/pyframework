@@ -1,16 +1,14 @@
 class Application(object):
     setting_key = "default"
 
-    def __init__(self, data):
+    def __init__(self):
         """
         AppConstant's constructor
-        
-        Arguments:
-            data {dict} -- Config JSON files data
         """
         from bootstrap.constants import PATHS, CONST, FW
+        from bootstrap.loadconfigs import load_config
 
-        self._data = data
+        self._data = load_config()
         self._paths = PATHS
         self._const = CONST
         self._fw = FW

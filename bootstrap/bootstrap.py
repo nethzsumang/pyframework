@@ -11,16 +11,7 @@ def app_init():
         object -- Application's object.
     """
 
-    from pathlib import Path
-
-    config_data_path = path_join(str(Path.cwd()), "config")
-    config_data = {}
-    for o_filepath in Path(config_data_path).iterdir():
-        if o_filepath.suffix == ".json":
-            filename, _ = filename_split(str(o_filepath))
-            config_data[filename.upper()] = JSONFile(str(o_filepath), "r").read()
-
-    o_app = Application(config_data)
+    o_app = Application()
     return o_app
 
 
