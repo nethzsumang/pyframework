@@ -8,11 +8,12 @@ class Application(object):
         Arguments:
             data {dict} -- Config JSON files data
         """
-        from bootstrap.constants import PATHS, CONST
+        from bootstrap.constants import PATHS, CONST, FW
 
         self._data = data
         self._paths = PATHS
         self._const = CONST
+        self._fw = FW
 
     @property
     def data(self):
@@ -25,6 +26,10 @@ class Application(object):
     @property
     def const(self):
         return self._const
+
+    @property
+    def fw(self):
+        return self._fw
 
     def get(self, group, key):
         """

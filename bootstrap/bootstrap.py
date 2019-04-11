@@ -20,9 +20,6 @@ def app_init():
             filename, _ = filename_split(str(o_filepath))
             config_data[filename.upper()] = JSONFile(str(o_filepath), "r").read()
 
-    fw_constants_data_path = path_join(str(Path.cwd()), "framework", "constants", "fw.json")
-    config_data["FW"] = JSONFile(fw_constants_data_path, "r").read()
-
     o_app = Application(config_data)
     return o_app
 
@@ -105,9 +102,9 @@ def show_title(app):
     print(app.data['APP']['DESCRIPTION'])
     print('(c) ' + app.data['APP']['AUTHOR_NAME'])
     print()
-    print('Based on ' + app.data['FW']['FW_NAME'] + ' by Kenneth Sumang <kennethsumang08@gmail.com>')
-    print(app.data['FW']['FW_NAME'] + ' v' + app.data['FW']['FW_VERSION'] + ', ' + app.data['FW']['FW_VERSION_DATE'])
-    print('Github: https://github.com/nethzsumang/pyframework')
+    print('Based on ' + app.fw['FW_NAME'] + ' by ' + app.fw["FW_AUTHOR_NAME"] +' <' + app.fw["FW_AUTHOR_EMAIL"] + ">")
+    print(app.fw['FW_NAME'] + ' v' + app.fw['FW_VERSION'] + ', ' + app.fw['FW_VERSION_DATE'])
+    print('Github: ' + app.fw["FW_GIT"])
     print()
     print()
     print('Application is starting...')
