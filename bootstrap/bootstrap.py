@@ -101,12 +101,12 @@ def execute_controller(
 
 
 def show_title(app):
-    print(app.get('APP', 'APP_NAME') + ' v' + app.get('APP', 'APP_VERSION'))
-    print(app.get('APP', 'DESCRIPTION'))
-    print('(c) ' + app.get('APP', 'AUTHOR_NAME'))
+    print(app.data['APP']['APP_NAME'] + ' v' + app.data['APP']['APP_VERSION'])
+    print(app.data['APP']['DESCRIPTION'])
+    print('(c) ' + app.data['APP']['AUTHOR_NAME'])
     print()
-    print('Based on ' + app.get('FW', 'FW_NAME') + ' by Kenneth Sumang <kennethsumang08@gmail.com>')
-    print(app.get('FW', 'FW_NAME') + ' v' + app.get('FW', 'FW_VERSION') + ', ' + app.get('FW', 'FW_VERSION_DATE'))
+    print('Based on ' + app.data['FW']['FW_NAME'] + ' by Kenneth Sumang <kennethsumang08@gmail.com>')
+    print(app.data['FW']['FW_NAME'] + ' v' + app.data['FW']['FW_VERSION'] + ', ' + app.data['FW']['FW_VERSION_DATE'])
     print('Github: https://github.com/nethzsumang/pyframework')
     print()
     print()

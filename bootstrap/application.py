@@ -1,4 +1,4 @@
-class Application:
+class Application(object):
     setting_key = "default"
 
     def __init__(self, data):
@@ -8,35 +8,50 @@ class Application:
         Arguments:
             data {dict} -- Config JSON files data
         """
+        from bootstrap.constants import PATHS, CONST
 
-        self.data = data
+        self._data = data
+        self._paths = PATHS
+        self._const = CONST
+
+    @property
+    def data(self):
+        return self._data
+
+    @property
+    def path(self):
+        return self._paths
+
+    @property
+    def const(self):
+        return self._const
 
     def get(self, group, key):
         """
         Gets a key in the config dictionary.
-        
+
         Arguments:
             group {str} -- Config group (filename in CAPS)
             key   {str} -- Config key
-        
+
         Returns:
             string -- The value of that key in config.
         """
 
-        return self.data[group][key]
+        return self._data[group][key]
 
     def get_group(self, group):
         """
         Gets the config data of a whole config file.
-        
+
         Arguments:
             group {str} -- Config group (filename in CAPS)
-        
+
         Returns:
             dict -- Config data of that file.
         """
 
-        return self.data[group]
+        return self._data[group]
 
     def dump(self, var):
         """
@@ -58,7 +73,7 @@ class Application:
             str -- Language code.
         """
 
-        return self.data["LANG"]["current"]
+        return self._data["LANG"]["current"]
 
     def set_lang(self, lang):
         """
@@ -76,4 +91,4 @@ class Application:
         lang_data = JSONFile(lang_data_path, "r").read()
         lang_data["current"] = lang
         JSONFile(lang_data_path, "w").write(lang_data)
-        self.data["LANG"] = JSONFile(lang_data_path, "r").read()
+        self._data["LANG"] = JSONFile(lang_data_path, "r").read()
