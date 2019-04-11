@@ -67,3 +67,8 @@
 
 0.2a
 * Added support for AUTO_INCREMENT in MySQL.
+
+0.3
+* Added constants (paths, framework constants) in Application object.
+* Added a way to include an application specific constant.
+* More convenient fetching of constants.
