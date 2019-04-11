@@ -7,7 +7,8 @@ class Controller(abc.ABC):
 
     @staticmethod
     def json(m_var):
-        pass
+        import json
+        return json.dumps(m_var)
 
     @staticmethod
     def view(s_class_name, a_data):
