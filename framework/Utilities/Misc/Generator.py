@@ -36,7 +36,7 @@ class Generator:
                        '\n' \
                        'class ' + filename + '(Controller):\n' \
                        '    @staticmethod\n' \
-                       '    def index(o_app, a_params):\n' \
+                       '    def index(app, params):\n' \
                        '        return Controller.redirect(False)\n'
         elif file_type == self.MODEL:
             folder_path = path_join('app', 'models')

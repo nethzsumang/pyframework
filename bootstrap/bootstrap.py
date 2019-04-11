@@ -5,44 +5,44 @@ from framework.Utilities.Misc.Utils import path_join, filename_split
 class AppConstants:
     setting_key = "default"
 
-    def __init__(self, a_data):
+    def __init__(self, data):
         """
         AppConstant's constructor
         
         Arguments:
-            a_data {dict} -- Config JSON files data
+            data {dict} -- Config JSON files data
         """
 
-        self.a_data = a_data
+        self.data = data
 
-    def get(self, s_group, s_key):
+    def get(self, group, key):
         """
         Gets a key in the config dictionary.
         
         Arguments:
-            s_group {str} -- Config group (filename in CAPS)
-            s_key {str} -- Config key
+            group {str} -- Config group (filename in CAPS)
+            key   {str} -- Config key
         
         Returns:
             string -- The value of that key in config.
         """
 
-        return self.a_data[s_group][s_key]
+        return self.data[group][key]
 
-    def get_group(self, s_group):
+    def get_group(self, group):
         """
         Gets the config data of a whole config file.
         
         Arguments:
-            s_group {str} -- Config group (filename in CAPS)
+            group {str} -- Config group (filename in CAPS)
         
         Returns:
             dict -- Config data of that file.
         """
 
-        return self.a_data[s_group]
+        return self.data[group]
 
-    def dump(self, m_var):
+    def dump(self, var):
         """
         Dumps a variable in the console.
         
@@ -52,7 +52,7 @@ class AppConstants:
 
         from var_dump import var_dump
 
-        var_dump(m_var)
+        var_dump(var)
 
     def get_lang(self):
         """
@@ -62,14 +62,14 @@ class AppConstants:
             str -- Language code.
         """
 
-        return self.a_data["LANG"]["current"]
+        return self.data["LANG"]["current"]
 
-    def set_lang(self, s_lang):
+    def set_lang(self, lang):
         """
         Sets the current language setting.
         
         Arguments:
-            s_lang {str} -- Language code to set.
+            lang {str} -- Language code to set.
         """
 
         from framework.Data.File.JSONFile import JSONFile
@@ -77,9 +77,9 @@ class AppConstants:
 
         lang_data_path = path_join(str(Path.cwd()), "config", "lang.json")
         lang_data = JSONFile(lang_data_path, "r").read()
-        lang_data["current"] = s_lang
+        lang_data["current"] = lang
         JSONFile(lang_data_path, "w").write(lang_data)
-        self.a_data["LANG"] = JSONFile(lang_data_path, "r").read()
+        self.data["LANG"] = JSONFile(lang_data_path, "r").read()
 
 
 def app_init():
@@ -108,46 +108,46 @@ def start():
     Starts the whole application.
     """
 
-    o_app = app_init()
-    show_title(o_app)
+    app = app_init()
+    show_title(app)
     s_name = "IndexController"
     s_method = "index"
-    o_response = {
+    response = {
         "result": True,
         "redirect_to_cont": s_name,
         "redirect_to_method": s_method,
         "params": None,
     }
 
-    while o_response["result"] is True:
-        o_response = execute_controller(
-            o_app,
-            o_response["redirect_to_cont"],
-            o_response["redirect_to_method"],
-            o_response["params"],
+    while response["result"] is True:
+        response = execute_controller(
+            app,
+            response["redirect_to_cont"],
+            response["redirect_to_method"],
+            response["params"],
         )
 
-        if o_response is None or 'result' not in o_response:
-            o_response = dict()
-            o_response['result'] = False
+        if response is None or 'result' not in response:
+            response = dict()
+            response['result'] = False
 
     show_exit()
 
 
 
 def execute_controller(
-    o_app, s_name="IndexController", s_method="index", a_params=None
+    app, s_name="IndexController", s_method="index", params=None
 ):
     """
     Executes a function in the controller given.
     
     Arguments:
-        o_app {object} -- AppConstant's object.
+        app {object} -- AppConstant's object.
     
     Keyword Arguments:
         s_name {str} -- The controller to be executed. (default: {"IndexController"})
         s_method {str} -- The method to be executed. (default: {"index"})
-        a_params {[type]} -- Parameters to pass to the controller method. (default: {None})
+        params {[type]} -- Parameters to pass to the controller method. (default: {None})
     
     Returns:
         mixed -- The return value of the controller method that was executed.
@@ -168,22 +168,22 @@ def execute_controller(
         print(s_name + " does not exist!")
         exit(1)
 
-    if a_params is None:
-        a_params = {}
+    if params is None:
+        params = {}
 
     from pydoc import locate
 
-    o_class = locate("app.controllers." + s_name + "." + s_name)
-    return getattr(o_class, s_method)(o_app, a_params)
+    _class = locate("app.controllers." + s_name + "." + s_name)
+    return getattr(_class, s_method)(app, params)
 
 
-def show_title(o_app):
-    print(o_app.get('APP', 'APP_NAME') + ' v' + o_app.get('APP', 'APP_VERSION'))
-    print(o_app.get('APP', 'DESCRIPTION'))
-    print('(c) ' + o_app.get('APP', 'AUTHOR_NAME'))
+def show_title(app):
+    print(app.get('APP', 'APP_NAME') + ' v' + app.get('APP', 'APP_VERSION'))
+    print(app.get('APP', 'DESCRIPTION'))
+    print('(c) ' + app.get('APP', 'AUTHOR_NAME'))
     print()
-    print('Based on ' + o_app.get('FW', 'FW_NAME') + ' by Kenneth Sumang <kennethsumang08@gmail.com>')
-    print(o_app.get('FW', 'FW_NAME') + ' v' + o_app.get('FW', 'FW_VERSION') + ', ' + o_app.get('FW', 'FW_VERSION_DATE'))
+    print('Based on ' + app.get('FW', 'FW_NAME') + ' by Kenneth Sumang <kennethsumang08@gmail.com>')
+    print(app.get('FW', 'FW_NAME') + ' v' + app.get('FW', 'FW_VERSION') + ', ' + app.get('FW', 'FW_VERSION_DATE'))
     print('Github: https://github.com/nethzsumang/pyframework')
     print()
     print()

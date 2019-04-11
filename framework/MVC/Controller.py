@@ -6,33 +6,33 @@ class Controller(abc.ABC):
         pass
 
     @staticmethod
-    def json(m_var):
+    def json(var):
         import json
-        return json.dumps(m_var)
+        return json.dumps(var)
 
     @staticmethod
-    def view(s_class_name, a_data):
+    def view(class_name, data):
         from pydoc import locate
 
-        o_class = locate("app.views." + s_class_name + "View." + s_class_name + "View")
-        return getattr(o_class(), "show")(a_data)
+        _class = locate("app.views." + class_name + "View." + class_name + "View")
+        return getattr(_class(), "show")(data)
 
     @staticmethod
-    def redirect(m_route, a_params=None):
-        a_params = {} if a_params is None else a_params
-        if not m_route:
+    def redirect(route, params=None):
+        params = {} if params is None else params
+        if not route:
             return {"result": False}
         else:
-            a_route = m_route.split("@", 1)
+            location = route.split("@", 1)
             return {
                 "result": True,
-                "redirect_to_cont": a_route[0],
-                "redirect_to_method": a_route[1],
-                "params": a_params,
+                "redirect_to_cont": location[0],
+                "redirect_to_method": location[1],
+                "params": params,
             }
 
     @staticmethod
-    def error(i_code=500, s_msg="An error occurred!"):
+    def error(code=500, message="An error occurred!"):
         return Controller.redirect(
-            "ErrorController@index", {"code": i_code, "msg": s_msg}
+            "ErrorController@index", {"code": code, "msg": message}
         )
