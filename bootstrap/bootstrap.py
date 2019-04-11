@@ -8,7 +8,7 @@ def app_init():
     Initializes the application.
     
     Returns:
-        object -- AppConstant's object.
+        object -- Application's object.
     """
 
     from pathlib import Path
