@@ -70,6 +70,7 @@ class Application:
 
         from framework.Data.File.JSONFile import JSONFile
         from pathlib import Path
+        from framework.Utilities.Misc.Utils import path_join
 
         lang_data_path = path_join(str(Path.cwd()), "config", "lang.json")
         lang_data = JSONFile(lang_data_path, "r").read()

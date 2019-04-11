@@ -20,6 +20,9 @@ def app_init():
             filename, _ = filename_split(str(o_filepath))
             config_data[filename.upper()] = JSONFile(str(o_filepath), "r").read()
 
+    fw_constants_data_path = path_join(str(Path.cwd()), "framework", "constants", "fw.json")
+    config_data["FW"] = JSONFile(fw_constants_data_path, "r").read()
+
     o_app = Application(config_data)
     return o_app
 
@@ -53,7 +56,6 @@ def start():
             response['result'] = False
 
     show_exit()
-
 
 
 def execute_controller(
