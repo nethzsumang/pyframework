@@ -74,4 +74,4 @@
 * More convenient fetching of constants.
 
 0.4
-* Multiprocessing support.
+* Enabled multiprocessing support.
