@@ -70,9 +70,6 @@ if s_command == "reset_support":
     data = JSONFile(file_path, "r").read()
     data["dependencies"] = {}
     data["dependencies"]["var_dump"] = "1.0.0"
-    data["dependencies"]["pyquery"] = "1.0.0"
-    data["dependencies"]["requests"] = "1.0.0"
-    data["dependencies"]["xlwt"] = "1.0.0"
     data["dependencies"]["inflect"] = "1.0.0"
     JSONFile(file_path, "w").write(data)
 
