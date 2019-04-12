@@ -1,6 +1,4 @@
 class Application(object):
-    setting_key = "default"
-
     def __init__(self):
         """
         AppConstant's constructor
