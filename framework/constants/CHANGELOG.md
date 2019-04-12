@@ -72,3 +72,6 @@
 * Added constants (paths, framework constants) in Application object.
 * Added a way to include an application specific constant.
 * More convenient fetching of constants.
+
+0.4
+* Multiprocessing support.
