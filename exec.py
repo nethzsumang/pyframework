@@ -125,3 +125,28 @@ if s_command == "migrate":
         getattr(obj, 'migrate')(a_migrations_paths[i])
 
     print("Successfully migrated.")
+
+if s_command == "deploy":
+    from pkg_resources import get_distribution, DistributionNotFound
+    from framework.Utilities.Packager.PackageInstaller import install_package
+    import subprocess
+
+    def check():
+        print("Checking if PyInstaller is installed...")
+        s_package_version = get_distribution("pyinstaller").version
+        print("PyInstaller " + s_package_version)
+
+    def deploy():
+        print("Deploying...")
+        subprocess.run("pyinstaller index.py " + ''.join(a_params))
+        print("Deployment finished.")
+
+    try:
+        check()
+        deploy()
+    except DistributionNotFound:
+        print("PyInstaller not found.")
+        print("Installing...")
+        install_package("pyinstaller")
+        print("PyInstaller installed.")
+        deploy()
