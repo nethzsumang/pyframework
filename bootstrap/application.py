@@ -4,12 +4,15 @@ class Application(object):
         AppConstant's constructor
         """
         from bootstrap.constants import PATHS, CONST, FW
+        from bootstrap.routes import ROUTES, FALLBACK
         from bootstrap.loadconfigs import load_config
 
         self._data = load_config()
         self._paths = PATHS
         self._const = CONST
         self._fw = FW
+        self._routes = ROUTES
+        self._routes['_fallback'] = FALLBACK
 
     @property
     def data(self):
@@ -26,6 +29,10 @@ class Application(object):
     @property
     def fw(self):
         return self._fw
+
+    @property
+    def route(self):
+        return self._routes
 
     def get(self, group, key):
         """

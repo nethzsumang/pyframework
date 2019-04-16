@@ -22,6 +22,8 @@ def start():
 
     app = app_init()
     show_title(app)
+    app.dump(app)
+    exit(1)
     s_name = "IndexController"
     s_method = "index"
     response = {
