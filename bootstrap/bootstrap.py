@@ -11,41 +11,44 @@ def app_init():
         object -- Application's object.
     """
 
-    o_app = Application()
-    return o_app
+    return Application()
 
 
 def start():
     """
     Starts the whole application.
     """
+    from bootstrap.router import Router
 
     app = app_init()
     show_title(app)
-    app.dump(app)
-    exit(1)
-    s_name = "IndexController"
-    s_method = "index"
-    response = {
-        "result": True,
-        "redirect_to_cont": s_name,
-        "redirect_to_method": s_method,
-        "params": None,
-    }
-
-    while response["result"] is True:
-        response = execute_controller(
-            app,
-            response["redirect_to_cont"],
-            response["redirect_to_method"],
-            response["params"],
-        )
-
-        if response is None or 'result' not in response:
-            response = dict()
-            response['result'] = False
-
+    router = Router.instance(app)
+    router.begin_router()
     show_exit()
+    exit(0)
+
+    # s_name = "IndexController"
+    # s_method = "index"
+    # response = {
+    #     "result": True,
+    #     "redirect_to_cont": s_name,
+    #     "redirect_to_method": s_method,
+    #     "params": None,
+    # }
+    #
+    # while response["result"] is True:
+    #     response = execute_controller(
+    #         app,
+    #         response["redirect_to_cont"],
+    #         response["redirect_to_method"],
+    #         response["params"],
+    #     )
+    #
+    #     if response is None or 'result' not in response:
+    #         response = dict()
+    #         response['result'] = False
+    #
+    # show_exit()
 
 
 def execute_controller(

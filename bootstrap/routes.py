@@ -1,10 +1,13 @@
 # application specific routes
 ROUTES = {
     'index': 'IndexController@index',
-    'error': 'ErrorController@index'
+    'error': 'ErrorController@index',
+    "foo": "IndexController@foo"
 }
 
-FALLBACK = ['ErrorController@index', {
+ENTRY = ["IndexController@index", {}]
+
+FALLBACK = ['ErrorController@error500', {
     'code': 403,
     'msg': 'Controller not found!'
 }]
