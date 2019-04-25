@@ -4,12 +4,22 @@ class Application(object):
         AppConstant's constructor
         """
         from bootstrap.constants import PATHS, CONST, FW
+        from bootstrap.routes import ROUTES, FALLBACK, ENTRY
         from bootstrap.loadconfigs import load_config
+        from framework.MVC.Request.Request import Request
+        from framework.MVC.Response.Response import Response
 
         self._data = load_config()
         self._paths = PATHS
         self._const = CONST
         self._fw = FW
+        self._routes = ROUTES
+        self._routes['_fallback'] = FALLBACK
+        self._routes['_entry'] = ENTRY[0]
+        self._routes['_entry_data'] = ENTRY[1]
+
+        self.next = Request.new(self)
+        self.response = Response.new(self._routes['_entry'])
 
     @property
     def data(self):
@@ -26,6 +36,10 @@ class Application(object):
     @property
     def fw(self):
         return self._fw
+
+    @property
+    def route(self):
+        return self._routes
 
     def get(self, group, key):
         """

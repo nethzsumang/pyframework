@@ -36,3 +36,23 @@ class Controller(abc.ABC):
         return Controller.redirect(
             "ErrorController@index", {"code": code, "msg": message}
         )
+
+    @staticmethod
+    def route(name, data=None):
+        data = {} if data is None else data
+
+        if len(name) < 1:
+            return {"result": False}
+
+        from bootstrap.routes import ROUTES
+        if name not in ROUTES.keys():
+            print("Undefined route `" + name + "`")
+            return {"result": False}
+
+        location = ROUTES[name].split("@", 1)
+        return {
+            "result": True,
+            "redirect_to_cont": location[0],
+            "redirect_to_method": location[1],
+            "params": data
+        }
