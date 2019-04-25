@@ -75,3 +75,7 @@
 
 0.4
 * Enabled multiprocessing support.
+
+0.5
+* Routing support.
+* Added Request and Response implementation.
