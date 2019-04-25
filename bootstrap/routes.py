@@ -11,3 +11,13 @@ FALLBACK = ['ErrorController@error500', {
     'code': 403,
     'msg': 'Controller not found!'
 }]
+
+# classes that intercept and filter request before
+# hitting the controller.
+MIDDLEWARES = {
+    'sample': {
+        'path': 'app.middlewares.SampleMiddleware',
+        'class_name': 'SampleMiddleware',
+        'apply_on': ['index']
+    }
+}

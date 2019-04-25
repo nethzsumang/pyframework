@@ -4,6 +4,7 @@ class Request:
         self.action = params["action"]
         self.data = params["data"]
         self.app = params["app"]
+        self.route = params["route"]
 
     @staticmethod
     def create(app, route=False, data=None):
@@ -12,6 +13,7 @@ class Request:
         if route:
             cont, method = Router.get_action(app, route)
             return Request({
+                "route": route,
                 "controller": cont,
                 "action": method,
                 "data": data,
@@ -27,6 +29,7 @@ class Request:
         cont, method = Router.get_action(app, app.route['_entry'])
 
         return Request({
+            "route": "index",
             "controller": cont,
             "action": method,
             "data": app.route['_entry_data'],
@@ -45,8 +48,14 @@ class Request:
     def get_action(self):
         return self.action
 
+    def get_route(self):
+        return self.route
+
     def execute(self):
         from pydoc import locate
 
         _class = locate("app.controllers." + self.controller + "." + self.controller)
         return getattr(_class, self.action)(self.app)
+
+    def set_data(self, key, value):
+        self.data[key] = value

@@ -11,6 +11,8 @@ class Router:
 
         while True:
             request = self.app.next
+            middlewares = Router.__get_middleware(self.app, request)
+
             response = request.execute()
             route = response.get_redirect()
 
@@ -55,3 +57,17 @@ class Router:
             return False
 
         return True
+
+    @staticmethod
+    def __get_middleware(app, request):
+        middleware_list = app.middleware
+        route = request.get_route()
+        must_apply_middlewares = []
+
+        for key, middleware in middleware_list:
+            apply_on = middleware["apply_on"]
+
+            if route in apply_on:
+                must_apply_middlewares.append(middleware)
+
+        return must_apply_middlewares
