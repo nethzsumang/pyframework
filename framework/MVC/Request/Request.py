@@ -10,11 +10,7 @@ class Request:
         from bootstrap.router import Router
 
         if route:
-            # cont, method = Router.get_action(app, route)
-            a = Router.get_action(app, route)
-            from var_dump import var_dump
-            var_dump(a)
-            exit(1)
+            cont, method = Router.get_action(app, route)
             return Request({
                 "controller": cont,
                 "action": method,

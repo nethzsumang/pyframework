@@ -18,8 +18,8 @@ class Application(object):
         self._routes['_entry'] = ENTRY[0]
         self._routes['_entry_data'] = ENTRY[1]
 
-        self._next = Request.new(self)
-        self._response = Response.new()
+        self.next = Request.new(self)
+        self.response = Response.new(self._routes['_entry'])
 
     @property
     def data(self):
@@ -40,14 +40,6 @@ class Application(object):
     @property
     def route(self):
         return self._routes
-
-    @property
-    def next(self):
-        return self._next
-
-    @property
-    def response(self):
-        return self._response
 
     def get(self, group, key):
         """

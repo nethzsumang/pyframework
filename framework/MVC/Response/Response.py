@@ -1,14 +1,18 @@
 class Response:
-    def __init__(self, data, redirect_to=False):
+    def __init__(self, data={}, route=False):
         self.data = data
-        self.redirect_to = redirect_to
+        self.route = route
 
     def get_response(self):
         return self.data
 
     def get_redirect(self):
-        return self.redirect_to
+        return self.route
 
     @staticmethod
-    def new(route=False, data=None):
-        return Response(data, redirect_to=route)
+    def new(route, data={}):
+        return Response(data, route=route)
+
+    @staticmethod
+    def exit(data={}):
+        return Response(data, route=False)

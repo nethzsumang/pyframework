@@ -1,7 +1,5 @@
 class Router:
     def __init__(self, app):
-        self.default_controller = "IndexController"
-        self.default_method = "index"
         self.app = app
 
     @staticmethod
@@ -14,13 +12,13 @@ class Router:
         while True:
             request = self.app.next
             response = request.execute()
-            redirect_address = response.get_redirect()
+            route = response.get_redirect()
 
-            if not redirect_address:
+            if not route:
                 return
 
             data = response.get_response()
-            self.app.next = Request.create(self.app, route=redirect_address, data=data)
+            self.app.next = Request.create(self.app, route=route, data=data)
 
     @staticmethod
     def fallback(app):

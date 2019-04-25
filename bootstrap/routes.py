@@ -5,7 +5,7 @@ ROUTES = {
     "foo": "IndexController@foo"
 }
 
-ENTRY = ["IndexController@index", {}]
+ENTRY = ["index", {}]
 
 FALLBACK = ['ErrorController@error500', {
     'code': 403,

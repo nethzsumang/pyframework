@@ -12,4 +12,4 @@ class IndexController(Controller):
     @staticmethod
     def foo(app):
         print("Foo method")
-        return Response.new()
+        return Response.exit()
