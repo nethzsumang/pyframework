@@ -6,6 +6,7 @@ class IndexController(Controller):
     @staticmethod
     def index(app):
         print("This is " + app.data["APP"]["APP_NAME"] + " app.")
+        print("From middleware: " + app.next.get_data('name'))
         Controller.view('Sample', {})
         return Response.new(route="foo", data={})
 

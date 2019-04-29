@@ -18,6 +18,11 @@ MIDDLEWARES = {
     'sample': {
         'path': 'app.middlewares.SampleMiddleware',
         'class_name': 'SampleMiddleware',
+        'apply_on': ['index', 'foo']
+    },
+    'another': {
+        'path': 'app.middlewares.AnotherSampleMiddleware',
+        'class_name': 'AnotherSampleMiddleware',
         'apply_on': ['index']
     }
 }

@@ -12,7 +12,7 @@ class Router:
         while True:
             request = self.app.next
             middlewares = Router.__get_middleware(self.app, request)
-
+            request.set_middlewares(middlewares)
             response = request.execute()
             route = response.get_redirect()
 
@@ -64,7 +64,7 @@ class Router:
         route = request.get_route()
         must_apply_middlewares = []
 
-        for key, middleware in middleware_list:
+        for key, middleware in middleware_list.items():
             apply_on = middleware["apply_on"]
 
             if route in apply_on:

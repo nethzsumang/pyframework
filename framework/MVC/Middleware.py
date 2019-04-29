@@ -9,5 +9,5 @@ class Middleware(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def handle(self, request):
+    def handle(self, app, request):
         pass
