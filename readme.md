@@ -7,3 +7,6 @@
 4. Type `python exec.py init`, then press Enter.
 5. Type `python index.py`, then press Enter.
 
+### Documentation
+* For core MVC functionality, see [this](./docs/MVC.md).
+* For executable helper command list, see [this](./docs/ExecCommands.md);
