@@ -84,3 +84,6 @@
 * Fixed middleware execution.
 * Changed how controller passes data to view.
 * Refactored.
+
+0.5.2
+* Made app object accessible in the views.
