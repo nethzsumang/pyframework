@@ -8,6 +8,6 @@ class SampleMiddleware(Middleware):
 
     def handle(self, app, request):
         request.set_data('name', 'Kenneth')
-        request.set_data('flag', False)
+        request.set_data('flag', True)
         print('sample middleware')
-        return request
+        return Middleware.next(request)

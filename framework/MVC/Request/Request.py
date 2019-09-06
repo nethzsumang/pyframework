@@ -1,3 +1,6 @@
+import sys
+
+
 class Request:
     def __init__(self, params):
         self.controller = params["controller"]
@@ -71,10 +74,12 @@ class Request:
 
             _class = locate(path + '.' + class_name)
             _object = _class()
-            request = getattr(_object, "handle")(self.app, self)
+            data = getattr(_object, "handle")(self.app, self)
 
-            if request.get_route() != self.get_route():
-                pass
+            if not data["success"]:
+                print("Error " + str(data["code"]))
+                print(data["message"])
+                sys.exit(0)
 
     def set_data(self, key, value):
         self.data[key] = value

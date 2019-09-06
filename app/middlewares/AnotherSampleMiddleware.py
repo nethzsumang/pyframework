@@ -9,7 +9,7 @@ class AnotherSampleMiddleware(Middleware):
     def handle(self, app, request):
         request.set_data('name', 'Edited')
         if not request.get_data('flag'):
-            return Request.create(app, 'error')
+            return Middleware.error(request, 500, "Flag is false")
 
         print('another sample middleware')
-        return
+        return Middleware.next(request)
