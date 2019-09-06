@@ -11,11 +11,11 @@ class Controller(abc.ABC):
         return json.dumps(var)
 
     @staticmethod
-    def view(class_name, data):
+    def view(class_name, app, data):
         from pydoc import locate
 
         _class = locate("app.views." + class_name + "View." + class_name + "View")
-        return getattr(_class(data), "show")()
+        return getattr(_class(app, data), "show")()
 
     @staticmethod
     def redirect(route, params=None):

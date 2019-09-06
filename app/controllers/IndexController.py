@@ -7,7 +7,7 @@ class IndexController(Controller):
     def index(app):
         print("This is " + app.data["APP"]["APP_NAME"] + " app.")
         print("From middleware: " + app.request.get_data('name'))
-        Controller.view('Sample', {
+        Controller.view('Sample', app, {
             "name": app.request.get_data("name")
         })
         return Response.new(route="foo", data={})

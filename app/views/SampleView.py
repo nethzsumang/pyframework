@@ -3,8 +3,8 @@ from framework.GUI.tkinter.TkinterWrapper import TkinterWrapper
 
 
 class SampleView(View):
-    def __init__(self, data):
-        super().__init__(data)
+    def __init__(self, app, data):
+        super().__init__(app, data)
         self._initElements()
 
     def show(self):

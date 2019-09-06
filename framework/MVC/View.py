@@ -2,8 +2,9 @@ import abc
 
 
 class View(abc.ABC):
-    def __init__(self, data):
-        self.data = data;
+    def __init__(self, app, data):
+        self.app = app
+        self.data = data
 
     @abc.abstractmethod
     def show(self):
