@@ -19,7 +19,7 @@ class Application(object):
         self._routes['_entry_data'] = ENTRY[1]
         self._middlewares = MIDDLEWARES
 
-        self.next = Request.new(self)
+        self.request = Request.new(self)
         self.response = Response.new(self._routes['_entry'])
 
     @property

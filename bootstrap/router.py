@@ -10,7 +10,7 @@ class Router:
         from framework.MVC.Request.Request import Request
 
         while True:
-            request = self.app.next
+            request = self.app.request
             middlewares = Router.__get_middleware(self.app, request)
             request.set_middlewares(middlewares)
             response = request.execute()
@@ -20,7 +20,7 @@ class Router:
                 return
 
             data = response.get_response()
-            self.app.next = Request.create(self.app, route=route, data=data)
+            self.app.request = Request.create(self.app, route=route, data=data)
 
     @staticmethod
     def fallback(app):
