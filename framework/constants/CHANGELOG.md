@@ -79,3 +79,8 @@
 0.5
 * Routing support.
 * Added Request and Response implementation.
+
+0.5.1
+* Fixed middleware execution.
+* Changed how controller passes data to view.
+* Refactored.
