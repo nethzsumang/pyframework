@@ -15,7 +15,7 @@ class Controller(abc.ABC):
         from pydoc import locate
 
         _class = locate("app.views." + class_name + "View." + class_name + "View")
-        return getattr(_class(), "show")(data)
+        return getattr(_class(data), "show")()
 
     @staticmethod
     def redirect(route, params=None):

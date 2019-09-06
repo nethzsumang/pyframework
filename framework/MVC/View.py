@@ -2,11 +2,11 @@ import abc
 
 
 class View(abc.ABC):
-    def __init__(self):
-        pass
+    def __init__(self, data):
+        self.data = data;
 
     @abc.abstractmethod
-    def show(self, a_data):
+    def show(self):
         pass
 
     @abc.abstractmethod

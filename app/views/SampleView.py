@@ -3,11 +3,11 @@ from framework.GUI.tkinter.TkinterWrapper import TkinterWrapper
 
 
 class SampleView(View):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, data):
+        super().__init__(data)
         self._initElements()
 
-    def show(self, a_data):
+    def show(self):
         TkinterWrapper.open_window(self.root)
 
     def close(self):
@@ -20,5 +20,8 @@ class SampleView(View):
         TkinterWrapper.add_widget(
             frame,
             TkinterWrapper.LABEL,
-            {"text": "Hello World!", "justify": "center"},
+            {
+                "text": "Hello, " + self.data["name"] + "!", 
+                "justify": "center"
+            }
         ).grid(0, 0)
