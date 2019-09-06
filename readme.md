@@ -9,4 +9,7 @@
 
 ### Documentation
 * For core MVC functionality, see [this](./docs/MVC.md).
-* For executable helper command list, see [this](./docs/ExecCommands.md);
+* For executable helper command list, see [this](./docs/ExecCommands.md).
+
+### Changelog
+* For the changelog, see [this](./framework/constants/CHANGELOG.md).
