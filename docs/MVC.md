@@ -70,5 +70,5 @@ When extending the framework's View method, you should implement these two funct
         It handles the closing of the view.
 
 **Note**:  
-When responding to button events, you can make use of `Event`'s event handler. You can call `Event.handle('class.method', data_dict)`
-to call `Event` class' method.
+When responding to button events, you can make use of `Event`'s event handler. You can do it by inserting `lambda : Event.handle('class.method', data_dict)`
+into `"command"` of the `TkinterWidget`.
