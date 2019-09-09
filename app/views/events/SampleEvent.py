@@ -2,4 +2,5 @@ from framework.MVC.Event import Event
 
 
 class SampleEvent(Event):
-    pass
+    def test(data):
+        print("Event works!")

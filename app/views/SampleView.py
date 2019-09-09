@@ -1,5 +1,6 @@
 from framework.MVC.View import View
 from framework.GUI.tkinter.TkinterWrapper import TkinterWrapper
+from framework.MVC.Event import Event
 
 
 class SampleView(View):
@@ -25,3 +26,12 @@ class SampleView(View):
                 "justify": "center"
             }
         ).grid(0, 0)
+
+        TkinterWrapper.add_widget(
+            frame,
+            TkinterWrapper.BUTTON,
+            {
+                "text": "Press Me!",
+                "command": lambda : Event.handle("SampleEvent.test", {})
+            }
+        ).grid(1, 0)
